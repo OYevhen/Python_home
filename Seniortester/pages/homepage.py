@@ -13,7 +13,7 @@ class HomePage:
         galaxy_s6.click()
 
     def click_monitor(self):
-        monitors_link = self.driver.find_element(By.CSS_SELECTOR, '''onclick="byCat('monitor')"''')
+        monitors_link = self.driver.find_element(By.CSS_SELECTOR, '''a[onclick="byCat('monitor')"]''')
         monitors_link.click()
 
     def check_products_count(self, count):

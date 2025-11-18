@@ -1,6 +1,6 @@
 import time
-from SeniorTester.pages.homepage import HomePage
-from SeniorTester.pages.product import ProductPage
+from Seniortester.pages.homepage import HomePage
+from Seniortester.pages.product import ProductPage
 
 def test_open_s6(driver):
     homepage = HomePage(driver)
