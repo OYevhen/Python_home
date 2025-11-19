@@ -28,3 +28,9 @@ def all_tests():
     print('\nstarting tests')
     yield
     print('all tests done')
+
+@pytest.fixture()
+def browser():
+    driver = webdriver.Firefox()
+    driver.implicitly_wait(10)
+    return driver
