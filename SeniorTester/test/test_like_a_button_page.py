@@ -1,11 +1,12 @@
-
-from selenium.webdriver.common.by import By
+from Seniortester.pages.like_a_button import LikeAButton
 
 def test_button2_exist(browser):
-    browser.get('https://www.qa-practice.com/elements/button/like_a_button')
-    assert browser.find_element(By.LINK_TEXT, 'Click').is_displayed()
+    like_a_button = LikeAButton(browser)
+    like_a_button.open()
+    assert like_a_button.button_is_displayed
 
 def test_button2_clicked(browser):
-    browser.get('https://www.qa-practice.com/elements/button/like_a_button')
-    browser.find_element(By.LINK_TEXT, 'Click').click()
-    assert browser.find_element(By.ID, 'result-text').text == "Submitted"
+    like_a_button = LikeAButton(browser)
+    like_a_button.open()
+    like_a_button.button.click()
+    assert like_a_button.result_text == "Submitted"
