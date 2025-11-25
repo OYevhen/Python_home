@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1dfce7e7-d67f-4713-8285-c3dcff9a1411" name="Changes" comment="11.14">
+      <change afterPath="$PROJECT_DIR$/SeniorTester/action_chains.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SeniorTester/flacky.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;OYevhen&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/OYevhen/Python_home.git&quot;,
+    &quot;accountId&quot;: &quot;a155d9a8-67f2-440a-9366-1ea4e23df1d3&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="35TEsPIX8OnvQGXEe0pZf469FZr" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.pytest for SeniorTester.test.test_demoblaze.test_open_s6.executor": "Run",
+    "Python tests.pytest for SeniorTester.test.test_demoblaze.test_two_monitors.executor": "Run",
+    "Python tests.pytest for SeniorTester.test_demoblaze.test_open_s6.executor": "Run",
+    "Python tests.pytest for Seniortester.action_chains.test_cost.executor": "Run",
+    "Python tests.pytest for Seniortester.action_chains.test_new_tab_promo.executor": "Run",
+    "Python tests.pytest for Seniortester.test.test_button_page.test_button1_clicked.executor": "Run",
+    "Python tests.pytest for Seniortester.test.test_button_page.test_button1_exist.executor": "Run",
+    "Python tests.pytest for Seniortester.test.test_like_a_button_page.test_button2_clicked.executor": "Run",
+    "Python tests.pytest for Seniortester.test.test_like_a_button_page.test_button2_exist.executor": "Run",
+    "Python tests.pytest for Seniortester.test_login.test_dostavka_bonusiv.executor": "Run",
+    "Python tests.pytest for Seniortester.test_login.test_login.executor": "Run",
+    "Python tests.pytest for Seniortester.test_login.test_news.executor": "Run",
+    "Python tests.pytest for senior_tester.test_example.test_three_is_three.executor": "Run",
+    "Python tests.pytest in action_chains.py.executor": "Run",
+    "Python tests.pytest in test_api.py.executor": "Run",
+    "Python tests.pytest in test_demoblaze.py.executor": "Run",
+    "Python tests.pytest in test_example.py.executor": "Run",
+    "Python tests.pytest in test_login.py.executor": "Run",
+    "Python tests.pytest in test_qa_practice.py.executor": "Run",
+    "Python.find_elements.executor": "Run",
+    "Python.flacky.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.selenium_bot.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\msi\PycharmProjects\Python_home\Seniortester\test" />
+      <recent name="C:\Users\msi\PycharmProjects\Python_home\SeniorTester" />
+      <recent name="C:\Users\msi\PycharmProjects\Python_home\SeniorTester\test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.pytest for Seniortester.action_chains.test_new_tab_promo">
+    <configuration name="flacky" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python_home" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Seniortester" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Seniortester/flacky.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for Seniortester.action_chains.test_cost" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Python_home" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;Seniortester.action_chains.test_cost&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for Seniortester.action_chains.test_new_tab_promo" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Python_home" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;Seniortester.action_chains.test_new_tab_promo&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for Seniortester.test.test_like_a_button_page.test_button2_exist" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Python_home" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;Seniortester.test.test_like_a_button_page.test_button2_exist&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in action_chains.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Python_home" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/Seniortester/action_chains.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.pytest for Seniortester.action_chains.test_new_tab_promo" />
+        <item itemvalue="Python tests.pytest for Seniortester.action_chains.test_cost" />
+        <item itemvalue="Python tests.pytest in action_chains.py" />
+        <item itemvalue="Python.flacky" />
+        <item itemvalue="Python tests.pytest for Seniortester.test.test_like_a_button_page.test_button2_exist" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.27397.106" />
+        <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1dfce7e7-d67f-4713-8285-c3dcff9a1411" name="Changes" comment="" />
+      <created>1763125869637</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763125869637</updated>
+      <workItem from="1763125885132" duration="764000" />
+      <workItem from="1763229788777" duration="3488000" />
+      <workItem from="1763233473865" duration="3687000" />
+      <workItem from="1763280827815" duration="16237000" />
+      <workItem from="1763371806708" duration="2000" />
+      <workItem from="1763376464826" duration="116000" />
+      <workItem from="1763404380504" duration="9818000" />
+      <workItem from="1763453007812" duration="2209000" />
+      <workItem from="1763490672891" duration="6111000" />
+      <workItem from="1763536399545" duration="5034000" />
+      <workItem from="1763577593242" duration="4247000" />
+      <workItem from="1763582665546" duration="27000" />
+      <workItem from="1763663304161" duration="903000" />
+      <workItem from="1763830417560" duration="6130000" />
+      <workItem from="1764009116384" duration="665000" />
+      <workItem from="1764059244603" duration="1976000" />
+      <workItem from="1764098485044" duration="5215000" />
+    </task>
+    <task id="LOCAL-00001" summary="11.14">
+      <option name="closed" value="true" />
+      <created>1763126607746</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763126607746</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="11.14" />
+    <option name="LAST_COMMIT_MESSAGE" value="11.14" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_like_a_button_page_test_button2_exist.coverage" NAME="pytest for Seniortester.test.test_like_a_button_page.test_button2_exist Coverage Results" MODIFIED="1763578952650" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$selenium_bot.coverage" NAME="selenium_bot Coverage Results" MODIFIED="1763407268777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SeniorTester" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_example_py.coverage" NAME="pytest in test_example.py Coverage Results" MODIFIED="1763413538243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_button_page_test_button1_clicked.coverage" NAME="pytest for Seniortester.test.test_button_page.test_button1_clicked Coverage Results" MODIFIED="1763577947788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_test_demoblaze_test_open_s6.coverage" NAME="pytest for SeniorTester.test.test_demoblaze.test_open_s6 Coverage Results" MODIFIED="1763290572300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$find_elements.coverage" NAME="find_elements Coverage Results" MODIFIED="1763304476756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SeniorTester" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_news.coverage" NAME="pytest for Seniortester.test_login.test_news Coverage Results" MODIFIED="1763496230514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_like_a_button_page_test_button2_clicked.coverage" NAME="pytest for Seniortester.test.test_like_a_button_page.test_button2_clicked Coverage Results" MODIFIED="1763541496825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_action_chains_test_cost.coverage" NAME="pytest for Seniortester.action_chains.test_cost Coverage Results" MODIFIED="1764102154700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_action_chains_test_new_tab_promo.coverage" NAME="pytest for Seniortester.action_chains.test_new_tab_promo Coverage Results" MODIFIED="1764103398061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_qa_practice_py.coverage" NAME="pytest in test_qa_practice.py Coverage Results" MODIFIED="1763538737666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_test_demoblaze_test_two_monitors.coverage" NAME="pytest for SeniorTester.test.test_demoblaze.test_two_monitors Coverage Results" MODIFIED="1763290849299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$flacky.coverage" NAME="flacky Coverage Results" MODIFIED="1763837107743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Seniortester" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_button_page_test_button1_exist.coverage" NAME="pytest for Seniortester.test.test_button_page.test_button1_exist Coverage Results" MODIFIED="1763578005390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_demoblaze_py.coverage" NAME="pytest in test_demoblaze.py Coverage Results" MODIFIED="1763287947690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_senior_tester_test_example_test_three_is_three.coverage" NAME="pytest for senior_tester.test_example.test_three_is_three Coverage Results" MODIFIED="1763410823101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_login_py.coverage" NAME="pytest in test_login.py Coverage Results" MODIFIED="1763498244660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_action_chains_py.coverage" NAME="pytest in action_chains.py Coverage Results" MODIFIED="1764059965176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_login.coverage" NAME="pytest for Seniortester.test_login.test_login Coverage Results" MODIFIED="1763493149175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$main.coverage" NAME="main Coverage Results" MODIFIED="1763376575260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_api_py.coverage" NAME="pytest in test_api.py Coverage Results" MODIFIED="1763126260485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_demoblaze_test_open_s6.coverage" NAME="pytest for SeniorTester.test_demoblaze.test_open_s6 Coverage Results" MODIFIED="1763235650078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_dostavka_bonusiv.coverage" NAME="pytest for Seniortester.test_login.test_dostavka_bonusiv Coverage Results" MODIFIED="1763497314699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
