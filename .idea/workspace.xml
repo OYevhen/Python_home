@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dfce7e7-d67f-4713-8285-c3dcff9a1411" name="Changes" comment="11.14">
-      <change afterPath="$PROJECT_DIR$/SeniorTester/action_chains.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SeniorTester/flacky.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SeniorTester/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SeniorTester/DEL_conftest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SeniorTester/dotenv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SeniorTester/playwright_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Seniortester/conftest.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +59,9 @@
     "Python tests.pytest for SeniorTester.test_demoblaze.test_open_s6.executor": "Run",
     "Python tests.pytest for Seniortester.action_chains.test_cost.executor": "Run",
     "Python tests.pytest for Seniortester.action_chains.test_new_tab_promo.executor": "Run",
+    "Python tests.pytest for Seniortester.dotenv.test_request.executor": "Run",
+    "Python tests.pytest for Seniortester.playwright_test.test_wiki.executor": "Run",
+    "Python tests.pytest for Seniortester.playwright_test.test_wiki2.executor": "Run",
     "Python tests.pytest for Seniortester.test.test_button_page.test_button1_clicked.executor": "Run",
     "Python tests.pytest for Seniortester.test.test_button_page.test_button1_exist.executor": "Run",
     "Python tests.pytest for Seniortester.test.test_like_a_button_page.test_button2_clicked.executor": "Run",
@@ -62,6 +69,7 @@
     "Python tests.pytest for Seniortester.test_login.test_dostavka_bonusiv.executor": "Run",
     "Python tests.pytest for Seniortester.test_login.test_login.executor": "Run",
     "Python tests.pytest for Seniortester.test_login.test_news.executor": "Run",
+    "Python tests.pytest for Seniortester.test_parametrize.test_login.executor": "Run",
     "Python tests.pytest for senior_tester.test_example.test_three_is_three.executor": "Run",
     "Python tests.pytest in action_chains.py.executor": "Run",
     "Python tests.pytest in test_api.py.executor": "Run",
@@ -69,6 +77,7 @@
     "Python tests.pytest in test_example.py.executor": "Run",
     "Python tests.pytest in test_login.py.executor": "Run",
     "Python tests.pytest in test_qa_practice.py.executor": "Run",
+    "Python.dotenv.executor": "Run",
     "Python.find_elements.executor": "Run",
     "Python.flacky.executor": "Run",
     "Python.main.executor": "Run",
@@ -95,8 +104,8 @@
       <recent name="C:\Users\msi\PycharmProjects\Python_home\SeniorTester\test" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for Seniortester.action_chains.test_new_tab_promo">
-    <configuration name="flacky" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.pytest for Seniortester.playwright_test.test_wiki2">
+    <configuration name="dotenv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python_home" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,7 +119,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Seniortester/flacky.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Seniortester/dotenv.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -119,7 +128,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for Seniortester.action_chains.test_cost" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for Seniortester.dotenv.test_request" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Python_home" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,11 +142,11 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;Seniortester.action_chains.test_cost&quot;" />
+      <option name="_new_target" value="&quot;Seniortester.dotenv.test_request&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for Seniortester.action_chains.test_new_tab_promo" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for Seniortester.playwright_test.test_wiki" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Python_home" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,11 +160,11 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;Seniortester.action_chains.test_new_tab_promo&quot;" />
+      <option name="_new_target" value="&quot;Seniortester.playwright_test.test_wiki&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for Seniortester.test.test_like_a_button_page.test_button2_exist" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for Seniortester.playwright_test.test_wiki2" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Python_home" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -169,11 +178,11 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;Seniortester.test.test_like_a_button_page.test_button2_exist&quot;" />
+      <option name="_new_target" value="&quot;Seniortester.playwright_test.test_wiki2&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in action_chains.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for Seniortester.test_parametrize.test_login" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Python_home" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -187,17 +196,17 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/Seniortester/action_chains.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;Seniortester.test_parametrize.test_login&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for Seniortester.action_chains.test_new_tab_promo" />
-        <item itemvalue="Python tests.pytest for Seniortester.action_chains.test_cost" />
-        <item itemvalue="Python tests.pytest in action_chains.py" />
-        <item itemvalue="Python.flacky" />
-        <item itemvalue="Python tests.pytest for Seniortester.test.test_like_a_button_page.test_button2_exist" />
+        <item itemvalue="Python tests.pytest for Seniortester.playwright_test.test_wiki2" />
+        <item itemvalue="Python tests.pytest for Seniortester.playwright_test.test_wiki" />
+        <item itemvalue="Python tests.pytest for Seniortester.dotenv.test_request" />
+        <item itemvalue="Python.dotenv" />
+        <item itemvalue="Python tests.pytest for Seniortester.test_parametrize.test_login" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +241,12 @@
       <workItem from="1763830417560" duration="6130000" />
       <workItem from="1764009116384" duration="665000" />
       <workItem from="1764059244603" duration="1976000" />
-      <workItem from="1764098485044" duration="5215000" />
+      <workItem from="1764098485044" duration="5302000" />
+      <workItem from="1764140731409" duration="597000" />
+      <workItem from="1764356113001" duration="768000" />
+      <workItem from="1764575999791" duration="2520000" />
+      <workItem from="1764612702890" duration="2087000" />
+      <workItem from="1764614925106" duration="2264000" />
     </task>
     <task id="LOCAL-00001" summary="11.14">
       <option name="closed" value="true" />
@@ -253,28 +267,33 @@
     <option name="LAST_COMMIT_MESSAGE" value="11.14" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_playwright_test_test_wiki2.coverage" NAME="pytest for Seniortester.playwright_test.test_wiki2 Coverage Results" MODIFIED="1764617013892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_like_a_button_page_test_button2_exist.coverage" NAME="pytest for Seniortester.test.test_like_a_button_page.test_button2_exist Coverage Results" MODIFIED="1763578952650" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Python_home$selenium_bot.coverage" NAME="selenium_bot Coverage Results" MODIFIED="1763407268777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SeniorTester" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_playwright_test_test_wiki.coverage" NAME="pytest for Seniortester.playwright_test.test_wiki Coverage Results" MODIFIED="1764615732324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_example_py.coverage" NAME="pytest in test_example.py Coverage Results" MODIFIED="1763413538243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_like_a_button_page_test_button2_clicked.coverage" NAME="pytest for Seniortester.test.test_like_a_button_page.test_button2_clicked Coverage Results" MODIFIED="1763541496825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_qa_practice_py.coverage" NAME="pytest in test_qa_practice.py Coverage Results" MODIFIED="1763538737666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_dotenv_test_request.coverage" NAME="pytest for Seniortester.dotenv.test_request Coverage Results" MODIFIED="1764615164136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_demoblaze_py.coverage" NAME="pytest in test_demoblaze.py Coverage Results" MODIFIED="1763287947690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_senior_tester_test_example_test_three_is_three.coverage" NAME="pytest for senior_tester.test_example.test_three_is_three Coverage Results" MODIFIED="1763410823101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_login.coverage" NAME="pytest for Seniortester.test_login.test_login Coverage Results" MODIFIED="1763493149175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_api_py.coverage" NAME="pytest in test_api.py Coverage Results" MODIFIED="1763126260485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_demoblaze_test_open_s6.coverage" NAME="pytest for SeniorTester.test_demoblaze.test_open_s6 Coverage Results" MODIFIED="1763235650078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$selenium_bot.coverage" NAME="selenium_bot Coverage Results" MODIFIED="1763407268777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SeniorTester" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_button_page_test_button1_clicked.coverage" NAME="pytest for Seniortester.test.test_button_page.test_button1_clicked Coverage Results" MODIFIED="1763577947788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_test_demoblaze_test_open_s6.coverage" NAME="pytest for SeniorTester.test.test_demoblaze.test_open_s6 Coverage Results" MODIFIED="1763290572300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$find_elements.coverage" NAME="find_elements Coverage Results" MODIFIED="1763304476756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SeniorTester" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_news.coverage" NAME="pytest for Seniortester.test_login.test_news Coverage Results" MODIFIED="1763496230514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_like_a_button_page_test_button2_clicked.coverage" NAME="pytest for Seniortester.test.test_like_a_button_page.test_button2_clicked Coverage Results" MODIFIED="1763541496825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_action_chains_test_cost.coverage" NAME="pytest for Seniortester.action_chains.test_cost Coverage Results" MODIFIED="1764102154700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_action_chains_test_new_tab_promo.coverage" NAME="pytest for Seniortester.action_chains.test_new_tab_promo Coverage Results" MODIFIED="1764103398061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_qa_practice_py.coverage" NAME="pytest in test_qa_practice.py Coverage Results" MODIFIED="1763538737666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$dotenv.coverage" NAME="dotenv Coverage Results" MODIFIED="1764576469262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Seniortester" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_test_demoblaze_test_two_monitors.coverage" NAME="pytest for SeniorTester.test.test_demoblaze.test_two_monitors Coverage Results" MODIFIED="1763290849299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$flacky.coverage" NAME="flacky Coverage Results" MODIFIED="1763837107743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Seniortester" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_button_page_test_button1_exist.coverage" NAME="pytest for Seniortester.test.test_button_page.test_button1_exist Coverage Results" MODIFIED="1763578005390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_demoblaze_py.coverage" NAME="pytest in test_demoblaze.py Coverage Results" MODIFIED="1763287947690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Python_home$pytest_for_senior_tester_test_example_test_three_is_three.coverage" NAME="pytest for senior_tester.test_example.test_three_is_three Coverage Results" MODIFIED="1763410823101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_login_py.coverage" NAME="pytest in test_login.py Coverage Results" MODIFIED="1763498244660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_in_action_chains_py.coverage" NAME="pytest in action_chains.py Coverage Results" MODIFIED="1764059965176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_login.coverage" NAME="pytest for Seniortester.test_login.test_login Coverage Results" MODIFIED="1763493149175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_parametrize_test_login.coverage" NAME="pytest for Seniortester.test_parametrize.test_login Coverage Results" MODIFIED="1764356825216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$main.coverage" NAME="main Coverage Results" MODIFIED="1763376575260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_api_py.coverage" NAME="pytest in test_api.py Coverage Results" MODIFIED="1763126260485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_demoblaze_test_open_s6.coverage" NAME="pytest for SeniorTester.test_demoblaze.test_open_s6 Coverage Results" MODIFIED="1763235650078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_dostavka_bonusiv.coverage" NAME="pytest for Seniortester.test_login.test_dostavka_bonusiv Coverage Results" MODIFIED="1763497314699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
