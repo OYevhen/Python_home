@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dfce7e7-d67f-4713-8285-c3dcff9a1411" name="Changes" comment="11.14">
-      <change beforePath="$PROJECT_DIR$/.idea/Python_home.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/CVM/init.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CVM/requests/pools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Python_home.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python_home.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CVM/test_requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/CVM/requests/ICW.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +35,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/OYevhen/Python_home.git&quot;,
-    &quot;accountId&quot;: &quot;73181757-b25a-4c07-ba5b-b29d8a6621a1&quot;
+    &quot;accountId&quot;: &quot;367ad15e-13db-4473-bb00-791e15149a96&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -49,59 +49,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python tests.pytest for SeniorTester.test.test_demoblaze.test_open_s6.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for SeniorTester.test.test_demoblaze.test_two_monitors.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for SeniorTester.test_demoblaze.test_open_s6.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.action_chains.test_cost.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.action_chains.test_new_tab_promo.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.dotenv.test_request.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.playwright_test.test_alert.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.playwright_test.test_request.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.playwright_test.test_wiki.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.playwright_test.test_wiki2.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.test.test_button_page.test_button1_clicked.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.test.test_button_page.test_button1_exist.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.test.test_like_a_button_page.test_button2_clicked.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.test.test_like_a_button_page.test_button2_exist.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.test_login.test_dostavka_bonusiv.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.test_login.test_login.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.test_login.test_news.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for Seniortester.test_parametrize.test_login.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for senior_tester.test_example.test_three_is_three.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest in ICW.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest in action_chains.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest in test_api.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest in test_demoblaze.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest in test_example.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest in test_login.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest in test_qa_practice.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dotenv.executor&quot;: &quot;Run&quot;,
-    &quot;Python.find_elements.executor&quot;: &quot;Run&quot;,
-    &quot;Python.flacky.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.selenium_bot.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_requests.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.pytest for SeniorTester.test.test_demoblaze.test_open_s6.executor": "Run",
+    "Python tests.pytest for SeniorTester.test.test_demoblaze.test_two_monitors.executor": "Run",
+    "Python tests.pytest for SeniorTester.test_demoblaze.test_open_s6.executor": "Run",
+    "Python tests.pytest for Seniortester.action_chains.test_cost.executor": "Run",
+    "Python tests.pytest for Seniortester.action_chains.test_new_tab_promo.executor": "Run",
+    "Python tests.pytest for Seniortester.dotenv.test_request.executor": "Run",
+    "Python tests.pytest for Seniortester.playwright_test.test_alert.executor": "Run",
+    "Python tests.pytest for Seniortester.playwright_test.test_request.executor": "Run",
+    "Python tests.pytest for Seniortester.playwright_test.test_wiki.executor": "Run",
+    "Python tests.pytest for Seniortester.playwright_test.test_wiki2.executor": "Run",
+    "Python tests.pytest for Seniortester.test.test_button_page.test_button1_clicked.executor": "Run",
+    "Python tests.pytest for Seniortester.test.test_button_page.test_button1_exist.executor": "Run",
+    "Python tests.pytest for Seniortester.test.test_like_a_button_page.test_button2_clicked.executor": "Run",
+    "Python tests.pytest for Seniortester.test.test_like_a_button_page.test_button2_exist.executor": "Run",
+    "Python tests.pytest for Seniortester.test_login.test_dostavka_bonusiv.executor": "Run",
+    "Python tests.pytest for Seniortester.test_login.test_login.executor": "Run",
+    "Python tests.pytest for Seniortester.test_login.test_news.executor": "Run",
+    "Python tests.pytest for Seniortester.test_parametrize.test_login.executor": "Run",
+    "Python tests.pytest for senior_tester.test_example.test_three_is_three.executor": "Run",
+    "Python tests.pytest in ICW.py.executor": "Run",
+    "Python tests.pytest in action_chains.py.executor": "Run",
+    "Python tests.pytest in test_api.py.executor": "Run",
+    "Python tests.pytest in test_demoblaze.py.executor": "Run",
+    "Python tests.pytest in test_example.py.executor": "Run",
+    "Python tests.pytest in test_login.py.executor": "Run",
+    "Python tests.pytest in test_qa_practice.py.executor": "Run",
+    "Python.dotenv.executor": "Run",
+    "Python.find_elements.executor": "Run",
+    "Python.flacky.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.selenium_bot.executor": "Run",
+    "Python.test_requests.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/CVM/requests" />
@@ -110,7 +109,7 @@
       <recent name="C:\Users\msi\PycharmProjects\Python_home\SeniorTester\test" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python tests.pytest in ICW.py">
     <configuration name="ICW" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -119,6 +118,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CVM" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -223,10 +223,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python tests.pytest in ICW.py" />
         <item itemvalue="Python.selenium_bot" />
         <item itemvalue="Python.ICW" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python tests.pytest for Seniortester.playwright_test.test_alert" />
       </list>
     </recent_temporary>
@@ -234,8 +234,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.142" />
-        <option value="bundled-python-sdk-f2b7a9f6281b-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-PY-253.28294.336" />
+        <option value="bundled-python-sdk-0978a7220b69-9867c7d4c0a4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.28294.336" />
       </set>
     </attachedChunks>
   </component>
@@ -282,7 +282,6 @@
       <workItem from="1765910190168" duration="1420000" />
       <workItem from="1766324756262" duration="920000" />
       <workItem from="1766381737542" duration="2605000" />
-      <workItem from="1767647137610" duration="1017000" />
     </task>
     <task id="LOCAL-00001" summary="11.14">
       <option name="closed" value="true" />
