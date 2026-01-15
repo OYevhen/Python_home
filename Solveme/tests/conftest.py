@@ -1,8 +1,12 @@
 import pytest
 from random import randrange
+from Solveme.src.generators.player import Player
 
+@pytest.fixture
+def get_player_generator():
+    return Player()
 
-@pytest.fixture()
+@pytest.fixture
 def get_number():
     return randrange(1, 1000, 5)
 
@@ -18,12 +22,12 @@ def _calculate(a, b):
         return None
 
 
-@pytest.fixture()
+@pytest.fixture
 def calculate():
     return _calculate
 
 
-@pytest.fixture()
+@pytest.fixture
 def make_number():
     print('I am getting number')
     number = randrange(1, 1000, 5)
