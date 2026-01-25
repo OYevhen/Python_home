@@ -1,18 +1,18 @@
 from playwright.sync_api import Page, expect
 import pytest
+from units import *
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_login_success(page: Page): 
     page.context.ignore_https_errors = True
-    page.goto('https://172.16.6.144')
+    page.goto(URL1)
     
     expect(page.locator('button.button_modal__wrapper--disabled')).to_be_visible(timeout=10000)
     
-    page.locator('input[type="text"]').first.fill('user')
-    page.locator('input[type="password"]').fill('rds123RDS!@#')
+    page.locator('input[type="text"]').first.fill(username)
+    page.locator('input[type="password"]').fill(password)
     
     expect(page.get_by_text("Stay signed in")).to_be_visible()
-
     expect(page.locator('button.button_modal__wrapper--disabled')).to_have_count(0)
     
     page.locator('span.checkbox-custom').click()
@@ -28,13 +28,10 @@ def test_login_success(page: Page):
 def test_login_failed(page: Page):
     pass
 
-
+# @pytest.mark.skip
 def test_logout(page: Page): 
-    page.context.ignore_https_errors = True
-    page.goto('https://172.16.6.144')
-    page.locator('input[type="text"]').first.fill('user')
-    page.locator('input[type="password"]').fill('rds123RDS!@#')
-    page.get_by_role('button', name='Sign in').click()
+    cvm = CVM(page)
+    cvm.login(URL1)
     page.get_by_role("button", name="user").click()
     page.get_by_text("Logout").click()
     

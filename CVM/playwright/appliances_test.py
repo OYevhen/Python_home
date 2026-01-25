@@ -1,29 +1,25 @@
 from playwright.sync_api import Page, expect
 import pytest
-
-# from SeniorTester.test_parametrize import page
-
+from units import *
 
 
-@pytest.mark.skip  
+# @pytest.mark.skip  
 def test_add_appliance(page: Page): 
-    page.context.ignore_https_errors = True
-    page.goto('https://172.16.6.144')
-    page.locator('input[type="text"]').first.fill('user')
-    page.locator('input[type="password"]').fill('rds123RDS!@#')
-    page.locator('span.checkbox-custom').click()
-    page.get_by_role('button', name='Sign in').click()
+    cvm = CVM(page)
+    cvm.login(URL1)
 
     page.get_by_role('link', name='Appliances').click()
+    if page.locator('p[title="145"]').is_visible():
+        cvm.remove_appliance()
     page.get_by_role('button', name='Add Appliance').click()
     
     expect(page.get_by_role("heading", name="Credentials")).to_be_visible(timeout=10000)   
     expect(page.get_by_text("Specify the appliance IP address and its administrator credentials")).to_be_visible() 
     expect(page.get_by_text("The newly added appliance will be linked to already connected partners.")).to_be_visible() 
     
-    page.get_by_role("textbox").nth(0).fill("172.16.6.145")
-    page.get_by_role("textbox").nth(1).fill("user")
-    page.locator("input[type='password']").fill("rds123RDS!@#")
+    page.get_by_role("textbox").nth(0).fill(f"{URL2.split('://')[1].rstrip('/')}")
+    page.get_by_role("textbox").nth(1).fill(username)
+    page.locator("input[type='password']").fill(password)
     page.get_by_role("button", name="Next").click()
     
     expect(page.get_by_role("heading", name="Summary")).to_be_visible(timeout=100000)   
@@ -40,20 +36,17 @@ def test_add_appliance(page: Page):
     
     expect(page.locator('p[title="145"]')).to_be_visible(timeout=100000)
 
-@pytest.mark.skip   
+
+# @pytest.mark.skip   
 def test_add_duplicated_appliance(page: Page): 
-    page.context.ignore_https_errors = True
-    page.goto('https://172.16.6.144')
-    page.locator('input[type="text"]').first.fill('user')
-    page.locator('input[type="password"]').fill('rds123RDS!@#')
-    page.locator('span.checkbox-custom').click()
-    page.get_by_role('button', name='Sign in').click()
+    cvm = CVM(page)
+    cvm.login(URL1)
 
     page.get_by_role('link', name='Appliances').click()
     page.get_by_role('button', name='Add Appliance').click()   
-    page.get_by_role("textbox").nth(0).fill("172.16.6.144")
-    page.get_by_role("textbox").nth(1).fill("user")
-    page.locator("input[type='password']").fill("rds123RDS!@#")
+    page.get_by_role("textbox").nth(0).fill(f"{URL1.split('://')[1].rstrip('/')}")
+    page.get_by_role("textbox").nth(1).fill(username)
+    page.locator("input[type='password']").fill(password)
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_text("Duplicate hostname detected")).to_be_visible(timeout=10000)
@@ -65,17 +58,18 @@ def test_add_duplicated_appliance(page: Page):
     page.locator('button.modalwindow__close_icon').click()  #close by pressing 'x'
 
 
+def test_add_unexisting_appliance(page: Page):
+    pass
+
 
 # @pytest.mark.skip    
 def test_remove_appliance(page: Page):
-    page.context.ignore_https_errors = True
-    page.goto('https://172.16.6.144')
-    page.locator('input[type="text"]').first.fill('user')
-    page.locator('input[type="password"]').fill('rds123RDS!@#')
-    page.locator('span.checkbox-custom').click()
-    page.get_by_role('button', name='Sign in').click()
+    cvm = CVM(page)
+    cvm.login(URL1)
 
     page.get_by_role('link', name='Appliances').click()
+    if not page.locator('p[title="145"]').is_visible():
+        cvm.add_appliance()
     page.locator('p[title="145"]').click()
     page.get_by_role("button").filter(has_text="Remove appliance").click()
 
