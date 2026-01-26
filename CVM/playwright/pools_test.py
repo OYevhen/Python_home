@@ -8,14 +8,17 @@ def test_create_single_disk_pools(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
 
+    # check if appliance 145 exists, if not, add it
     page.get_by_role('link', name='Appliances').click()
     if not page.locator('p[title="145"]').is_visible():
         cvm.add_appliance()
+    
+    # check if there is pools already, if yes, delete them
     page.get_by_role('link', name='Storage pools').click()
-
     if page.locator('p[title="144"]').is_visible() and page.locator('p[title="145"]').is_visible():
         cvm.delete_single_disk_pools()
 
+    expect(page.get_by_role("heading", name="Storage pools", exact=True)).to_be_visible()
     expect(page.get_by_text("There are no storage pools yet")).to_be_visible()
     expect(page.get_by_text("Start building your storage infrastructure by creating a new one")).to_be_visible()
 
@@ -116,9 +119,9 @@ def test_delete_single_disk_pools(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
 
-    "check if pools exist, if not, create them"
+    # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
-    if not page.locator('p[title="144"]').is_visible() and not page.locator('p[title="145"]').is_visible():
+    if not page.locator('p[title="144"]').is_visible() or not page.locator('p[title="145"]').is_visible():
         cvm.create_single_disk_pools()
 
     page.get_by_role("row", name="Name Type State Layout").locator("span").click()

@@ -58,6 +58,7 @@ def test_add_duplicated_appliance(page: Page):
     page.locator('button.modalwindow__close_icon').click()  #close by pressing 'x'
 
 
+@pytest.mark.skip(reason="Not implemented yet")
 def test_add_unexisting_appliance(page: Page):
     pass
 

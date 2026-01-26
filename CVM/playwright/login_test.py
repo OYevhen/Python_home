@@ -25,8 +25,10 @@ def test_login_success(page: Page):
     expect(page.get_by_role('link', name='Dashboard')).to_be_visible(timeout=10000)
 
 
+@pytest.mark.skip(reason="Not implemented yet")
 def test_login_failed(page: Page):
     pass
+
 
 # @pytest.mark.skip
 def test_logout(page: Page): 
