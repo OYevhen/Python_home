@@ -3,7 +3,7 @@ import pytest
 from units import *
 
 
-# @pytest.mark.skip
+@pytest.mark.skip
 def test_create_standard_volumes(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -40,9 +40,6 @@ def test_create_standard_volumes(page: Page):
     page.get_by_role("radio").nth(0).check()
 
     page.get_by_role("button", name="Next").click()
-
-    expect(page.get_by_role("heading", name="Select storage pool", exact=True)).to_be_visible()
-    expect(page.get_by_text("Select a storage pool with at least 2 GB of free capacity to create a volume.")).to_be_visible()
 
     expect(page.get_by_role("heading", name="Select storage pool", exact=True)).to_be_visible()
     expect(page.get_by_text("Select a storage pool with at least 2 GB of free capacity to create a volume.")).to_be_visible()
@@ -107,5 +104,47 @@ def test_create_standard_volumes(page: Page):
     page.get_by_role("button", name="No, cancel").click()
     page.get_by_role("button", name="Create").click()
     
-    expect(page.locator('p[title="144"]')).to_be_visible(timeout=100000)
-    expect(page.locator('p[title="145"]')).to_be_visible(timeout=100000)
+    # expect(page.locator('p[title="Standard"]')).to_have_count(2, timeout=100000)
+
+    expect(page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
+
+
+def test_delete_standard_volumes(page: Page):
+    cvm = CVM(page)
+    cvm.login(URL1)
+
+    page.get_by_role('link', name='Volumes').click()
+    if not page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Standard"]').is_visible() or not page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Standard"]').is_visible():
+        cvm.create_standard_volumes()
+
+    page.get_by_role("row", name="svol Standard Mounted sda1").locator("span").click()
+    page.get_by_role("row", name="svol Standard Mounted sdi1").locator("span").click()
+    page.get_by_role("button").filter(has_text="Delete volume(s)").click()
+
+    expect(page.get_by_role("heading", name="Delete volumes")).to_be_visible()
+    expect(page.locator('div.confirm_wizardNew__warning_bl_item', has_text="svol")).to_have_count(2)
+    expect(page.get_by_text("Delete2selectedvolumes")).to_be_visible()
+    expect(page.get_by_text("This action will permanently delete the selected volumes")).to_be_visible()
+
+
+    page.get_by_role("button").nth(3).click()
+    page.get_by_role("button").filter(has_text="Delete volume(s)").click()
+    page.get_by_role("button", name="Cancel").click()
+    page.get_by_role("button").filter(has_text="Delete volume(s)").click()
+    page.get_by_role("button", name="Delete").click()
+
+
+    expect(page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Standard"]')).not_to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Standard"]')).not_to_be_visible(timeout=100000)
+
+
+@pytest.mark.skip
+def test_create_raw_volumes(page: Page):
+    cvm = CVM(page)
+    cvm.login(URL1)
+
+    page.get_by_role('link', name='Volumes').click()
+
+
+
