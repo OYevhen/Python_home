@@ -104,8 +104,6 @@ def test_create_standard_volumes(page: Page):
     page.get_by_role("button", name="No, cancel").click()
     page.get_by_role("button", name="Create").click()
     
-    # expect(page.locator('p[title="Standard"]')).to_have_count(2, timeout=100000)
-
     expect(page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
     expect(page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
 
@@ -118,8 +116,8 @@ def test_delete_standard_volumes(page: Page):
     if not page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Standard"]').is_visible() or not page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Standard"]').is_visible():
         cvm.create_standard_volumes()
 
-    page.get_by_role("row", name="svol Standard Mounted sda1").locator("span").click()
-    page.get_by_role("row", name="svol Standard Mounted sdi1").locator("span").click()
+    page.locator('tr').filter(has=page.locator('p[title="144"]')).filter(has=page.locator('p[title="Standard"]')).locator('span.checkbox-custom').click()
+    page.locator('tr').filter(has=page.locator('p[title="145"]')).filter(has=page.locator('p[title="Standard"]')).locator('span.checkbox-custom').click()
     page.get_by_role("button").filter(has_text="Delete volume(s)").click()
 
     expect(page.get_by_role("heading", name="Delete volumes")).to_be_visible()
