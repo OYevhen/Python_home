@@ -74,3 +74,32 @@ class CVM:
         
         expect(self.page.locator('tr').filter(has=self.page.locator('p[title="144"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
         expect(self.page.locator('tr').filter(has=self.page.locator('p[title="145"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
+
+    def create_raw_volumes(self):
+        self.page.get_by_role("button").filter(has_text="Create a new volume").click()
+        self.page.get_by_role("radio").nth(1).check()
+        self.page.get_by_role("button", name="Next").click()
+        self.page.get_by_role("button", name="Next").click()
+        self.page.locator(".checkbox-custom").first.click()
+        self.page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
+        self.page.get_by_role("button", name="Next").click()
+        self.page.get_by_role("textbox").nth(0).fill("rvol")
+        self.page.get_by_role("textbox").nth(1).fill("2")
+        self.page.get_by_role("button", name="Next").click()
+        self.page.get_by_role("button", name="Create").click()
+        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="144"]')).locator('p[title="Raw"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="145"]')).locator('p[title="Raw"]')).to_be_visible(timeout=100000)    
+
+    def create_backup_volumes(self):
+        self.page.get_by_role("button").filter(has_text="Create a new volume").click()
+        self.page.get_by_role("radio").nth(2).check()
+        self.page.get_by_role("button", name="Next").click()
+        self.page.locator(".checkbox-custom").first.click()
+        self.page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
+        self.page.get_by_role("button", name="Next").click()
+        self.page.get_by_role("textbox").nth(0).fill("bvol")
+        self.page.get_by_role("textbox").nth(1).fill("2")
+        self.page.get_by_role("button", name="Next").click()
+        self.page.get_by_role("button", name="Create").click()
+        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="144"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="145"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)  
