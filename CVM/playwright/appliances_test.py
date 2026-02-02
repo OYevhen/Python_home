@@ -9,7 +9,7 @@ def test_add_appliance(page: Page):
     cvm.login(URL1)
 
     page.get_by_role('link', name='Appliances').click()
-    if page.locator('p[title="145"]').is_visible():
+    if page.locator(f'p[title="{appliance2_name}"]').is_visible():
         cvm.remove_appliance()
     page.get_by_role('button', name='Add Appliance').click()
     
@@ -17,14 +17,14 @@ def test_add_appliance(page: Page):
     expect(page.get_by_text("Specify the appliance IP address and its administrator credentials")).to_be_visible() 
     expect(page.get_by_text("The newly added appliance will be linked to already connected partners.")).to_be_visible() 
     
-    page.get_by_role("textbox").nth(0).fill(f"{URL2.split('://')[1].rstrip('/')}")
+    page.get_by_role("textbox").nth(0).fill(appliance2_name)
     page.get_by_role("textbox").nth(1).fill(username)
     page.locator("input[type='password']").fill(password)
     page.get_by_role("button", name="Next").click()
     
     expect(page.get_by_role("heading", name="Summary")).to_be_visible(timeout=100000)   
     expect(page.locator('div.windowsAppliances__summary-name').nth(0)).to_contain_text("Appliance name")
-    expect(page.locator('div.windowsAppliances__summary-description').nth(0)).to_contain_text("145")
+    expect(page.locator('div.windowsAppliances__summary-description').nth(0)).to_contain_text(appliance2_name)
     expect(page.locator('div.windowsAppliances__summary-name').nth(1)).to_contain_text("Storage capacity")
     expect(page.locator('div.windowsAppliances__summary-description').nth(1)).to_contain_text("987.51 GB")
     expect(page.locator('div.windowsAppliances__summary-name').nth(2)).to_contain_text("Storage pools")
@@ -34,7 +34,7 @@ def test_add_appliance(page: Page):
     
     page.get_by_role("button", name="Add appliance").first.click()
     
-    expect(page.locator('p[title="145"]')).to_be_visible(timeout=100000)
+    expect(page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
 
 
 # @pytest.mark.skip   
@@ -44,7 +44,7 @@ def test_add_duplicated_appliance(page: Page):
 
     page.get_by_role('link', name='Appliances').click()
     page.get_by_role('button', name='Add Appliance').click()   
-    page.get_by_role("textbox").nth(0).fill(f"{URL1.split('://')[1].rstrip('/')}")
+    page.get_by_role("textbox").nth(0).fill(appliance1_name)
     page.get_by_role("textbox").nth(1).fill(username)
     page.locator("input[type='password']").fill(password)
     page.get_by_role("button", name="Next").click()
@@ -69,9 +69,9 @@ def test_remove_appliance(page: Page):
     cvm.login(URL1)
 
     page.get_by_role('link', name='Appliances').click()
-    if not page.locator('p[title="145"]').is_visible():
+    if not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         cvm.add_appliance()
-    page.locator('p[title="145"]').click()
+    page.locator(f'p[title="{appliance2_name}"]').click()
     page.get_by_role("button").filter(has_text="Remove appliance").click()
 
     expect(page.get_by_role("heading", name="Remove appliance")).to_be_visible()
@@ -84,4 +84,4 @@ def test_remove_appliance(page: Page):
 
     page.get_by_role("button", name="Remove").click()
 
-    expect(page.locator('p[title="145"]')).to_have_count(0, timeout=100000)
+    expect(page.locator(f'p[title="{appliance2_name}"]')).to_have_count(0, timeout=100000)

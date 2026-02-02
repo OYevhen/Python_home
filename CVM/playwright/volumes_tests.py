@@ -10,12 +10,12 @@ def test_create_standard_volumes(page: Page):
 
     # check if appliance 145 exists, if not, add it
     page.get_by_role('link', name='Appliances').click()
-    if not page.locator('p[title="145"]').is_visible():
+    if not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         cvm.add_appliance()
 
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
-    if not page.locator('p[title="144"]').is_visible() or not page.locator('p[title="145"]').is_visible():
+    if not page.locator(f'p[title="{appliance1_name}"]').is_visible() or not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         expect(page.get_by_text("There are no volumes yet")).to_be_visible()
         expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
         cvm.create_single_disk_pools()    
@@ -84,9 +84,9 @@ def test_create_standard_volumes(page: Page):
     expect(page.locator('div.windowsVolumes__summary-description').nth(2)).to_contain_text("2 GB")
     expect(page.locator('div.windowsVolumes__summary-name').nth(3)).to_contain_text("Filesystem settings")
     expect(page.locator('div.windowsVolumes__summary-description').nth(3)).to_contain_text("Standard")
-    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text="145")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text=f"{appliance2_name}")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(4)).to_contain_text("Storage pool")
-    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text="145:")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text=f"{appliance2_name}:")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(5)).to_contain_text("Volume name")
     expect(page.locator('div.windowsVolumes__summary-description').nth(5)).to_contain_text("svol")
     expect(page.locator('div.windowsVolumes__summary-name').nth(6)).to_contain_text("Size")
@@ -104,8 +104,8 @@ def test_create_standard_volumes(page: Page):
     page.get_by_role("button", name="No, cancel").click()
     page.get_by_role("button", name="Create").click()
     
-    expect(page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
-    expect(page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Standard"]')).to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Standard"]')).to_be_visible(timeout=100000)
 
 @pytest.mark.skip
 def test_delete_standard_volumes(page: Page):
@@ -113,11 +113,11 @@ def test_delete_standard_volumes(page: Page):
     cvm.login(URL1)
 
     page.get_by_role('link', name='Volumes').click()
-    if not page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Standard"]').is_visible() or not page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Standard"]').is_visible():
+    if not page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Standard"]').is_visible() or not page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Standard"]').is_visible():
         cvm.create_standard_volumes()
 
-    page.locator('tr').filter(has=page.locator('p[title="144"]')).filter(has=page.locator('p[title="Standard"]')).locator('span.checkbox-custom').click()
-    page.locator('tr').filter(has=page.locator('p[title="145"]')).filter(has=page.locator('p[title="Standard"]')).locator('span.checkbox-custom').click()
+    page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).filter(has=page.locator(f'p[title="Standard"]')).locator('span.checkbox-custom').click()
+    page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).filter(has=page.locator(f'p[title="Standard"]')).locator('span.checkbox-custom').click()
     page.get_by_role("button").filter(has_text="Delete volume(s)").click()
 
     expect(page.get_by_role("heading", name="Delete volumes")).to_be_visible()
@@ -133,8 +133,8 @@ def test_delete_standard_volumes(page: Page):
     page.get_by_role("button", name="Delete").click()
 
 
-    expect(page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Standard"]')).not_to_be_visible(timeout=100000)
-    expect(page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Standard"]')).not_to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Standard"]')).not_to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Standard"]')).not_to_be_visible(timeout=100000)
 
 
 @pytest.mark.skip
@@ -144,12 +144,12 @@ def test_create_raw_volumes(page: Page):
 
     # check if appliance 145 exists, if not, add it
     page.get_by_role('link', name='Appliances').click()
-    if not page.locator('p[title="145"]').is_visible():
+    if not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         cvm.add_appliance()
 
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
-    if not page.locator('p[title="144"]').is_visible() or not page.locator('p[title="145"]').is_visible():
+    if not page.locator(f'p[title="{appliance1_name}"]').is_visible() or not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         expect(page.get_by_text("There are no volumes yet")).to_be_visible()
         expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
         cvm.create_single_disk_pools()    
@@ -208,18 +208,18 @@ def test_create_raw_volumes(page: Page):
 
     expect(page.get_by_role("heading", name="Summary")).to_be_visible(timeout=100000)
     expect(page.get_by_text("Review your settings before creating a volume")).to_be_visible()
-    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text="144")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text=f"{appliance1_name}")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(0)).to_contain_text("Storage pool")
-    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text="144:")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text=f"{appliance1_name}:")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(1)).to_contain_text("Volume name")
     expect(page.locator('div.windowsVolumes__summary-description').nth(1)).to_contain_text("rvol")
     expect(page.locator('div.windowsVolumes__summary-name').nth(2)).to_contain_text("Size")
     expect(page.locator('div.windowsVolumes__summary-description').nth(2)).to_contain_text("2 GB")
     expect(page.locator('div.windowsVolumes__summary-name').nth(3)).to_contain_text("Filesystem settings")
     expect(page.locator('div.windowsVolumes__summary-description').nth(3)).to_contain_text("Raw")
-    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text="145")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text=f"{appliance2_name}")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(4)).to_contain_text("Storage pool")
-    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text="145:")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text=f"{appliance2_name}:")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(5)).to_contain_text("Volume name")
     expect(page.locator('div.windowsVolumes__summary-description').nth(5)).to_contain_text("rvol")
     expect(page.locator('div.windowsVolumes__summary-name').nth(6)).to_contain_text("Size")
@@ -237,8 +237,8 @@ def test_create_raw_volumes(page: Page):
     page.get_by_role("button", name="No, cancel").click()
     page.get_by_role("button", name="Create").click()
     
-    expect(page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Raw"]')).to_be_visible(timeout=100000)
-    expect(page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Raw"]')).to_be_visible(timeout=100000)    
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Raw"]')).to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Raw"]')).to_be_visible(timeout=100000)    
 
 
 @pytest.mark.skip
@@ -247,11 +247,11 @@ def test_delete_raw_volumes(page: Page):
     cvm.login(URL1)
 
     page.get_by_role('link', name='Volumes').click()
-    if not page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Raw"]').is_visible() or not page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Raw"]').is_visible():
+    if not page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Raw"]').is_visible() or not page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Raw"]').is_visible():
         cvm.create_raw_volumes()
 
-    page.locator('tr').filter(has=page.locator('p[title="144"]')).filter(has=page.locator('p[title="Raw"]')).locator('span.checkbox-custom').click()
-    page.locator('tr').filter(has=page.locator('p[title="145"]')).filter(has=page.locator('p[title="Raw"]')).locator('span.checkbox-custom').click()
+    page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).filter(has=page.locator(f'p[title="Raw"]')).locator('span.checkbox-custom').click()
+    page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).filter(has=page.locator(f'p[title="Raw"]')).locator('span.checkbox-custom').click()
     page.get_by_role("button").filter(has_text="Delete volume(s)").click()
 
     expect(page.get_by_role("heading", name="Delete volumes")).to_be_visible()
@@ -267,8 +267,8 @@ def test_delete_raw_volumes(page: Page):
     page.get_by_role("button", name="Delete").click()
 
 
-    expect(page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Raw"]')).not_to_be_visible(timeout=100000)
-    expect(page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Raw"]')).not_to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Raw"]')).not_to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Raw"]')).not_to_be_visible(timeout=100000)
 
 
 @pytest.mark.skip
@@ -278,12 +278,12 @@ def test_create_backup_volumes(page: Page):
 
     # check if appliance 145 exists, if not, add it
     page.get_by_role('link', name='Appliances').click()
-    if not page.locator('p[title="145"]').is_visible():
+    if not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         cvm.add_appliance()
 
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
-    if not page.locator('p[title="144"]').is_visible() or not page.locator('p[title="145"]').is_visible():
+    if not page.locator(f'p[title="{appliance1_name}"]').is_visible() or not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         expect(page.get_by_text("There are no volumes yet")).to_be_visible()
         expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
         cvm.create_single_disk_pools()    
@@ -370,8 +370,8 @@ def test_create_backup_volumes(page: Page):
     page.get_by_role("button", name="No, cancel").click()
     page.get_by_role("button", name="Create").click()
     
-    expect(page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)
-    expect(page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)  
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)  
 
 
     #@pytest.mark.skip
@@ -380,11 +380,11 @@ def test_delete_backup_volumes(page: Page):
     cvm.login(URL1)
 
     page.get_by_role('link', name='Volumes').click()
-    if not page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Backup repository"]').is_visible() or not page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Backup repository"]').is_visible():
+    if not page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator('p[title="Backup repository"]').is_visible() or not page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Backup repository"]').is_visible():
         cvm.create_backup_volumes()
 
-    page.locator('tr').filter(has=page.locator('p[title="144"]')).filter(has=page.locator('p[title="Backup repository"]')).locator('span.checkbox-custom').click()
-    page.locator('tr').filter(has=page.locator('p[title="145"]')).filter(has=page.locator('p[title="Backup repository"]')).locator('span.checkbox-custom').click()
+    page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).filter(has=page.locator('p[title="Backup repository"]')).locator('span.checkbox-custom').click()
+    page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).filter(has=page.locator('p[title="Backup repository"]')).locator('span.checkbox-custom').click()
     page.get_by_role("button").filter(has_text="Delete volume(s)").click()
 
     expect(page.get_by_role("heading", name="Delete volumes")).to_be_visible()
@@ -400,5 +400,5 @@ def test_delete_backup_volumes(page: Page):
     page.get_by_role("button", name="Delete").click()
 
 
-    expect(page.locator('tr').filter(has=page.locator('p[title="144"]')).locator('p[title="Backup repository"]')).not_to_be_visible(timeout=100000)
-    expect(page.locator('tr').filter(has=page.locator('p[title="145"]')).locator('p[title="Backup repository"]')).not_to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator('p[title="Backup repository"]')).not_to_be_visible(timeout=100000)
+    expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Backup repository"]')).not_to_be_visible(timeout=100000)

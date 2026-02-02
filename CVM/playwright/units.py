@@ -1,10 +1,13 @@
 from playwright.sync_api import expect
 
 
-URL1 = "https://172.16.6.144/"
-URL2 = "https://172.16.6.145/"
+URL1 = "https://172.16.6.156/"
+URL2 = "https://172.16.6.157/"
 username = "user"
 password = "rds123RDS!@#"
+appliance1_name = f"{URL1.split('.')[-1].rstrip('/')}"
+appliance2_name = f"{URL2.split('.')[-1].rstrip('/')}"
+
 
 class CVM:
 
@@ -21,20 +24,20 @@ class CVM:
     def add_appliance(self):
         self.page.get_by_role('link', name='Appliances').click()
         self.page.get_by_role('button', name='Add Appliance').click()
-        self.page.get_by_role("textbox").nth(0).fill(f"{URL2.split('://')[1].rstrip('/')}")
+        self.page.get_by_role("textbox").nth(0).fill(appliance2_name)
         self.page.get_by_role("textbox").nth(1).fill(username)
         self.page.locator("input[type='password']").fill(password)
         self.page.get_by_role("button", name="Next").click()
         expect(self.page.get_by_role("heading", name="Summary")).to_be_visible(timeout=100000)   
         self.page.get_by_role("button", name="Add appliance").first.click()
-        expect(self.page.locator('p[title="145"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
 
     def remove_appliance(self):
         self.page.get_by_role('link', name='Appliances').click()
-        self.page.locator('p[title="145"]').click()
+        self.page.locator(f'p[title="{appliance2_name}"]').click()
         self.page.get_by_role("button").filter(has_text="Remove appliance").click()
         self.page.get_by_role("button", name="Remove").click()
-        expect(self.page.locator('p[title="145"]')).to_have_count(0, timeout=100000)
+        expect(self.page.locator(f'p[title="{appliance2_name}"]')).to_have_count(0, timeout=100000)
 
     def create_single_disk_pools(self):
         self.page.get_by_role('link', name='Storage pools').click()
@@ -49,17 +52,17 @@ class CVM:
         self.page.get_by_role("button", name="Next").click()
         self.page.get_by_role("button", name="Next").click()
         self.page.get_by_role("button", name="Create").click()
-        expect(self.page.locator('p[title="144"]')).to_be_visible(timeout=100000)
-        expect(self.page.locator('p[title="145"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator(f'p[title="{appliance1_name}"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
 
     def delete_single_disk_pools(self):
         self.page.get_by_role('link', name='Storage pools').click()
-        self.page.locator('p[title="144"]').click()
-        self.page.locator('p[title="145"]').click()
+        self.page.locator(f'p[title="{appliance1_name}"]').click()
+        self.page.locator(f'p[title="{appliance2_name}"]').click()
         self.page.get_by_role("button").filter(has_text="Delete pool(s)").click()
         self.page.get_by_role("button", name="Delete").click()
-        expect(self.page.locator('p[title="144"]')).to_be_visible(timeout=100000)
-        expect(self.page.locator('p[title="145"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator(f'p[title="{appliance1_name}"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
     
     def create_standard_volumes(self):
         self.page.get_by_role("button").filter(has_text="Create a new volume").click()
@@ -72,8 +75,8 @@ class CVM:
         self.page.get_by_role("button", name="Next").click()
         self.page.get_by_role("button", name="Create").click()
         
-        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="144"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
-        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="145"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance1_name}"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Standard"]')).to_be_visible(timeout=100000)
 
     def create_raw_volumes(self):
         self.page.get_by_role("button").filter(has_text="Create a new volume").click()
@@ -87,8 +90,8 @@ class CVM:
         self.page.get_by_role("textbox").nth(1).fill("2")
         self.page.get_by_role("button", name="Next").click()
         self.page.get_by_role("button", name="Create").click()
-        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="144"]')).locator('p[title="Raw"]')).to_be_visible(timeout=100000)
-        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="145"]')).locator('p[title="Raw"]')).to_be_visible(timeout=100000)    
+        expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance1_name}"]')).locator('p[title="Raw"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Raw"]')).to_be_visible(timeout=100000)    
 
     def create_backup_volumes(self):
         self.page.get_by_role("button").filter(has_text="Create a new volume").click()
@@ -101,5 +104,7 @@ class CVM:
         self.page.get_by_role("textbox").nth(1).fill("2")
         self.page.get_by_role("button", name="Next").click()
         self.page.get_by_role("button", name="Create").click()
-        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="144"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)
-        expect(self.page.locator('tr').filter(has=self.page.locator('p[title="145"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)  
+        expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance1_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)
+        expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)  
+
+print(appliance1_name)        
