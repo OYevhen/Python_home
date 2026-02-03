@@ -75,9 +75,9 @@ def test_create_standard_volumes(page: Page):
 
     expect(page.get_by_role("heading", name="Summary")).to_be_visible(timeout=100000)
     expect(page.get_by_text("Review your settings before creating a volume")).to_be_visible()
-    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text="144")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text=f"{appliance1_name}")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(0)).to_contain_text("Storage pool")
-    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text="144:")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text=f"{appliance1_name}:")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(1)).to_contain_text("Volume name")
     expect(page.locator('div.windowsVolumes__summary-description').nth(1)).to_contain_text("svol")
     expect(page.locator('div.windowsVolumes__summary-name').nth(2)).to_contain_text("Size")
