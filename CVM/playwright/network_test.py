@@ -18,6 +18,8 @@ def test_configure_ha_networking(page: Page):
 
     expect(page.get_by_role("heading", name="Network", exact=True)).to_be_visible()
 
+    if page.get_by_label("Static").count() < 6:
+        page.wait_for_timeout(1000)
     page.get_by_role("button").filter(has_text="Configure HA networking").click()
 
     expect(page.get_by_role("heading", name="Appliances", exact=True)).to_be_visible(timeout=100000)
@@ -90,3 +92,24 @@ def test_configure_ha_networking(page: Page):
     page.locator("#ens256").nth(3).click()
     page.get_by_role("spinbutton").fill("9000")
     page.get_by_role("button", name="Next").click()
+
+    expect(page.get_by_text("Testing network settings...")).to_be_visible()
+    expect(page.get_by_role("heading", name="Non-redundant configuration", level=2).nth(0)).to_be_visible(timeout=100000)
+    expect(page.get_by_text("Only 1 Replication network is configured. Configure more Replication networks to eliminate a single point of failure.")).to_be_visible()
+    expect(page.get_by_text("We recommended assigning at least two data network interfaces to eliminate a single point of failure.").nth(0)).to_be_visible()
+    expect(page.get_by_text("Acknowledge and continue?").nth(0)).to_be_visible()
+
+    page.get_by_role("button", name="Yes, continue").nth(1).click()
+
+    expect(page.get_by_role("heading", name="Non-redundant configuration", level=2)).to_be_visible()
+    expect(page.get_by_text("Only 1 Data network is configured. Configure more Data networks to eliminate a single point of failure.")).to_be_visible()
+    expect(page.get_by_text("We recommended assigning at least two data network interfaces to eliminate a single point of failure.")).to_be_visible()
+    expect(page.get_by_text("Acknowledge and continue?")).to_be_visible()
+
+    page.get_by_role("button", name="Yes, continue").click()
+
+    expect(page.get_by_role("heading", name="Review summary", exact=True)).to_be_visible()
+    expect(page.get_by_text("Appliances", exact=True).nth(0)).to_be_visible()
+    expect(page.get_by_text("Data IP addresses")).to_be_visible()
+    expect(page.get_by_text("Replication IP addresses")).to_be_visible()
+    expect(page.get_by_text("Cluster MTU size")).to_be_visible()
