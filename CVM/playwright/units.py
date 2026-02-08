@@ -24,7 +24,7 @@ class CVM:
     def add_appliance(self):
         self.page.get_by_role('link', name='Appliances').click()
         self.page.get_by_role('button', name='Add Appliance').click()
-        self.page.get_by_role("textbox").nth(0).fill(appliance2_name)
+        self.page.get_by_role("textbox").nth(0).fill(f'{URL2.removeprefix("https://").removesuffix("/")}')   
         self.page.get_by_role("textbox").nth(1).fill(username)
         self.page.locator("input[type='password']").fill(password)
         self.page.get_by_role("button", name="Next").click()

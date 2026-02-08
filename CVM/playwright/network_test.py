@@ -14,12 +14,16 @@ def test_configure_ha_networking(page: Page):
         cvm.add_appliance()
 
     page.get_by_role('link', name='Network').click()
+    
     expect(page.get_by_role("heading", name="Network")).to_be_visible(timeout=10000)
-
     expect(page.get_by_role("heading", name="Network", exact=True)).to_be_visible()
 
     if page.get_by_label("Static").count() < 6:
         page.wait_for_timeout(1000)
+
+    if page.locator('p.wizard_table__table_item_text[title="Up "]').count() == 6:
+        pytest.skip("All adapters are Up; skipping this test")
+
     page.get_by_role("button").filter(has_text="Configure HA networking").click()
 
     expect(page.get_by_role("heading", name="Appliances", exact=True)).to_be_visible(timeout=100000)
@@ -35,8 +39,8 @@ def test_configure_ha_networking(page: Page):
 
     page.get_by_role("row", name=f"{appliance1_name}").locator("span").click()
     page.get_by_role("row", name=f"{appliance2_name}").locator("span").click()
-    page.get_by_role("row", name="Appliance Status Software").locator("span").click()
-    page.get_by_role("row", name="Appliance Status Software").locator("span").click()
+    page.get_by_role("row", name="Appliance Status Software").locator("span").click()   #uncheck
+    page.get_by_role("row", name="Appliance Status Software").locator("span").click()   #check
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_role("heading", name="Set network channels", exact=True)).to_be_visible(timeout=100000)
@@ -77,12 +81,13 @@ def test_configure_ha_networking(page: Page):
 
     expect(page.get_by_text("Indicate a valid value in range of 1500-9000")).to_be_visible()
 
+    page.get_by_role("spinbutton").fill("9000")
     page.get_by_role("textbox").nth(1).fill("24")
     page.get_by_role("textbox").nth(2).fill(f"15.15.15.{appliance1_name}")
     page.get_by_role("textbox").nth(3).fill("24")
-    page.get_by_role("textbox").nth(4).fill(f"14.14.14.{appliance2_name}")
+    page.get_by_role("textbox").nth(4).fill("16.14.14.222")
     page.get_by_role("textbox").nth(5).fill("24")
-    page.get_by_role("textbox").nth(6).fill(f"15.15.15.{appliance2_name}")
+    page.get_by_role("textbox").nth(6).fill("16.15.15.222")
     page.get_by_role("textbox").nth(7).fill("24")
     page.locator("#ens224").nth(1).click()
     page.locator("#ens256").nth(0).click()
@@ -90,7 +95,15 @@ def test_configure_ha_networking(page: Page):
     page.locator("#ens256").nth(1).click()
     page.locator("#ens224").nth(2).click()
     page.locator("#ens256").nth(3).click()
-    page.get_by_role("spinbutton").fill("9000")
+    page.get_by_role("button", name="Next").click()
+
+    expect(page.get_by_role("heading", name="Network is misconfigured", level=2)).to_be_visible(timeout=100000)
+    expect(page.get_by_text("The specified network adapter does not contain partner adapters on the same subnet:")).to_be_visible()
+    expect(page.get_by_text("Please check the network")).to_be_visible()
+    
+    page.get_by_role("button", name="Close").click()
+    page.get_by_role("textbox").nth(4).fill(f"14.14.14.{appliance2_name}")
+    page.get_by_role("textbox").nth(6).fill(f"15.15.15.{appliance2_name}")
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_text("Testing network settings...")).to_be_visible()
@@ -113,3 +126,8 @@ def test_configure_ha_networking(page: Page):
     expect(page.get_by_text("Data IP addresses")).to_be_visible()
     expect(page.get_by_text("Replication IP addresses")).to_be_visible()
     expect(page.get_by_text("Cluster MTU size")).to_be_visible()
+
+    page.get_by_role("button", name="Configure", exact=True).click()
+
+    expect(page.locator('p.wizard_table__table_item_text[title="Up"]')).to_have_count(6, timeout=100000)
+    expect(page.locator('p.wizard_table__table_item_text[title="9000"]')).to_have_count(4, timeout=100000)

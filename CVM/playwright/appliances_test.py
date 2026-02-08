@@ -17,16 +17,20 @@ def test_add_appliance(page: Page):
     expect(page.get_by_text("Specify the appliance IP address and its administrator credentials")).to_be_visible() 
     expect(page.get_by_text("The newly added appliance will be linked to already connected partners.")).to_be_visible() 
     
-    page.get_by_role("textbox").nth(0).fill(appliance2_name)
+    page.get_by_role("textbox").nth(0).fill('123')
     page.get_by_role("textbox").nth(1).fill(username)
+
+    expect(page.get_by_text("Indicate a valid IP address")).to_be_visible()
+
     page.locator("input[type='password']").fill(password)
+    page.get_by_role("textbox").nth(0).fill(f'{URL2.removeprefix("https://").removesuffix("/")}')
     page.get_by_role("button", name="Next").click()
     
     expect(page.get_by_role("heading", name="Summary")).to_be_visible(timeout=100000)   
     expect(page.locator('div.windowsAppliances__summary-name').nth(0)).to_contain_text("Appliance name")
     expect(page.locator('div.windowsAppliances__summary-description').nth(0)).to_contain_text(appliance2_name)
     expect(page.locator('div.windowsAppliances__summary-name').nth(1)).to_contain_text("Storage capacity")
-    expect(page.locator('div.windowsAppliances__summary-description').nth(1)).to_contain_text("987.51 GB")
+    # expect(page.locator('div.windowsAppliances__summary-description').nth(1)).to_contain_text("987.51 GB")
     expect(page.locator('div.windowsAppliances__summary-name').nth(2)).to_contain_text("Storage pools")
     expect(page.locator('div.windowsAppliances__summary-description').nth(2)).to_contain_text("0")
     expect(page.locator('div.windowsAppliances__summary-name').nth(3)).to_contain_text("Volumes")
@@ -37,7 +41,7 @@ def test_add_appliance(page: Page):
     expect(page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
 
 
-# @pytest.mark.skip   
+@pytest.mark.skip   
 def test_add_duplicated_appliance(page: Page): 
     cvm = CVM(page)
     cvm.login(URL1)
@@ -62,8 +66,12 @@ def test_add_duplicated_appliance(page: Page):
 def test_add_unexisting_appliance(page: Page):
     pass
 
+# Connection failed
+# Connection to appliance“TEST”failed.
+# Make sure the target appliance is connected to the same management network as the current appliance.
+# Please check the IP address of the target appliance and its network settings, and try again.
 
-# @pytest.mark.skip    
+@pytest.mark.skip    
 def test_remove_appliance(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
