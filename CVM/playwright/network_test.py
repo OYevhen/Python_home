@@ -34,9 +34,6 @@ def test_configure_ha_networking(page: Page):
     expect(page.get_by_text("License ID")).to_be_visible()
     expect(page.get_by_text("Adapters")).to_be_visible()
 
-
-
-
     page.get_by_role("row", name=f"{appliance1_name}").locator("span").click()
     page.get_by_role("row", name=f"{appliance2_name}").locator("span").click()
     page.get_by_role("row", name="Appliance Status Software").locator("span").click()   #uncheck

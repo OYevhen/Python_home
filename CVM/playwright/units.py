@@ -1,8 +1,8 @@
 from playwright.sync_api import expect
 
 
-URL1 = "https://172.16.6.156/"
-URL2 = "https://172.16.6.157/"
+URL1 = "https://172.16.6.164/"
+URL2 = "https://172.16.6.165/"
 username = "user"
 password = "rds123RDS!@#"
 appliance1_name = f"{URL1.split('.')[-1].rstrip('/')}"
@@ -107,4 +107,27 @@ class CVM:
         expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance1_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)
         expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)  
 
-print(appliance1_name)        
+    def configure_ha_networking(self):
+        self.page.get_by_role('link', name='Network').click()
+        self.page.get_by_role("button", name="Configure HA networking").click()
+        self.page.get_by_role("row", name="Appliance Status Software").locator("span").click()
+        self.page.get_by_role("button", name="Next").click()
+        self.page.get_by_role("textbox").nth(0).fill(f"14.14.14.{appliance1_name}")
+        self.page.get_by_role("textbox").nth(1).fill("24")
+        self.page.get_by_role("checkbox").first.check()
+        self.page.get_by_role("textbox").nth(2).fill(f"15.15.15.{appliance1_name}")
+        self.page.get_by_role("textbox").nth(3).fill("24")
+        self.page.get_by_role("checkbox").nth(3).check()
+        self.page.get_by_role("textbox").nth(4).fill(f"14.14.14.{appliance2_name}")
+        self.page.get_by_role("textbox").nth(5).fill("24")
+        self.page.get_by_role("checkbox").nth(4).check()
+        self.page.get_by_role("textbox").nth(6).fill(f"15.15.15.{appliance2_name}")
+        self.page.get_by_role("textbox").nth(7).fill("24")
+        self.page.locator("input[name=\"eth2\"]").nth(3).click()
+        self.page.get_by_role("spinbutton").click()
+        self.page.get_by_role("spinbutton").fill("9000")
+        self.page.get_by_role("button", name="Next").click()
+        self.page.get_by_role("button", name="Yes, continue").nth(1).click()
+        self.page.get_by_role("button", name="Yes, continue").click()
+        self.page.get_by_role("button", name="Configure", exact=True).click()
+        expect(self.page.locator('p.wizard_table__table_item_text[title="Up"]')).to_have_count(6, timeout=100000)

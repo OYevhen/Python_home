@@ -15,14 +15,14 @@ def test_create_standard_volumes(page: Page):
 
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
-    if not page.locator(f'p[title="{appliance1_name}"]').is_visible() or not page.locator(f'p[title="{appliance2_name}"]').is_visible():
-        expect(page.get_by_text("There are no volumes yet")).to_be_visible()
-        expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
+    if page.get_by_text("There are no storage pools yet").is_visible():
         cvm.create_single_disk_pools()    
     
     page.get_by_role('link', name='Volumes').click()
 
     expect(page.get_by_role("heading", name="Volumes", exact=True)).to_be_visible()
+    expect(page.get_by_text("There are no volumes yet")).to_be_visible()
+    expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
 
     page.get_by_role("button").filter(has_text="Create a new volume").click()
 
