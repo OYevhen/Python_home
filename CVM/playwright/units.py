@@ -45,10 +45,8 @@ class CVM:
         self.page.get_by_role("button", name="Next").click()
         self.page.get_by_role("row", name="Appliances Status Available").locator("span").click()
         self.page.get_by_role("button", name="Next").click()
-        self.page.get_by_role("row", name="sda HDD SAS 931.51 GB 32:0:1:").locator("span").click()
-        if not self.page.get_by_role("row", name="sdi HDD SAS 931.51 GB 33:0:6:").is_visible():
-            self.page.locator(".buttonMin__wrapper.buttonMin__wrapper--arrow_right").click()
-        self.page.get_by_role("row", name="sdi HDD SAS 931.51 GB 33:0:6:").locator("span").click()
+        self.page.get_by_role("row", name="164 Online 2 14 GB").locator("span").click()
+        self.page.get_by_role("row", name="165 Online 2 14 GB").locator("span").click()
         self.page.get_by_role("button", name="Next").click()
         self.page.get_by_role("button", name="Next").click()
         self.page.get_by_role("button", name="Create").click()

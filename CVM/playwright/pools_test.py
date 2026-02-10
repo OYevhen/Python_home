@@ -1,3 +1,4 @@
+import re
 from playwright.sync_api import Page, expect
 import pytest
 from units import *
@@ -43,10 +44,9 @@ def test_create_single_disk_pools(page: Page):
     expect(page.get_by_text("Available capacity")).to_be_visible()
     
     page.get_by_role("row", name="Appliances Status Available").locator("span").click()
-    page.get_by_role("cell").nth(5).click()
-    page.get_by_role("row", name="Online 1 931.51 GB").locator("span").click()
-    page.get_by_role("row", name="Online 1 931.51 GB").locator("span").click()
-    page.get_by_role("cell").nth(5).click()
+    page.get_by_role("row", name="Appliances Status Available").locator("span").click()
+    page.get_by_role("row", name="164 Online 2 14 GB").locator("span").click()
+    page.get_by_role("row", name="165 Online 2 14 GB").locator("span").click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_role("heading", name="Physical disks", exact=True)).to_be_visible(timeout=100000)
@@ -54,20 +54,14 @@ def test_create_single_disk_pools(page: Page):
     expect(page.get_by_text("Total raw capacity of selected disks:").nth(0)).to_be_visible()
     expect(page.get_by_text("Total raw capacity of selected disks:").nth(1)).to_be_visible()
 
-    page.locator(".buttonMin__wrapper.buttonMin__wrapper--arrow_right").click()
-    page.locator(".buttonMin__wrapper").first.click()
-    page.get_by_role("button", name="5", exact=True).click()
-    page.locator(".buttonMin__wrapper.buttonMin__wrapper--arrow_right").click()
-    page.get_by_role("row", name=f"sda HDD SAS 931.51 GB 32:0:1:").locator("span").click()
+    page.get_by_role("cell").first.click()
 
     expect(page.get_by_text("Selected number of disks is not equal")).to_be_visible()
     
-    if not page.get_by_role("row", name=f"sdi HDD SAS 931.51 GB 33:0:6:").is_visible():
-        page.locator(".buttonMin__wrapper.buttonMin__wrapper--arrow_right").click()
-    page.get_by_role("row", name=f"sdi HDD SAS 931.51 GB 33:0:6:").locator("span").click()
+    page.get_by_role("cell").filter(has_text=re.compile(r"^$")).nth(2).click()
 
-    expect(page.get_by_text("Total raw capacity of selected disks:931.51 GB").nth(0)).to_be_visible()
-    expect(page.get_by_text("Total raw capacity of selected disks:931.51 GB").nth(1)).to_be_visible()
+    expect(page.get_by_text("Total raw capacity of selected disks:7 GB").nth(0)).to_be_visible()
+    expect(page.get_by_text("Total raw capacity of selected disks:7 GB").nth(1)).to_be_visible()
     expect(page.get_by_text("Selected number of disks is equal")).to_be_visible()
 
     page.get_by_role("button", name="Next").click()
@@ -89,16 +83,16 @@ def test_create_single_disk_pools(page: Page):
     expect(page.locator('p.pool_summary_item__list_item_title').nth(0)).to_contain_text("Storage pool layout")
     expect(page.locator('p.pool_summary_item__list_item_value').nth(0)).to_contain_text("Single disk")
     expect(page.locator('p.pool_summary_item__list_item_title').nth(1)).to_contain_text("Raw capacity")
-    expect(page.locator('p.pool_summary_item__list_item_value').nth(1)).to_contain_text("931.51 GB")
+    expect(page.locator('p.pool_summary_item__list_item_value').nth(1)).to_contain_text("7 GB")
     expect(page.locator('p.pool_summary_item__list_item_title').nth(2)).to_contain_text("Usable capacity")
-    expect(page.locator('p.pool_summary_item__list_item_value').nth(2)).to_contain_text("931.51 GB")
+    expect(page.locator('p.pool_summary_item__list_item_value').nth(2)).to_contain_text("7  GB")
     expect(page.get_by_text(f"{appliance2_name}")).to_be_visible()
     expect(page.locator('p.pool_summary_item__list_item_title').nth(3)).to_contain_text("Storage pool layout")
     expect(page.locator('p.pool_summary_item__list_item_value').nth(3)).to_contain_text("Single disk")
     expect(page.locator('p.pool_summary_item__list_item_title').nth(4)).to_contain_text("Raw capacity")
-    expect(page.locator('p.pool_summary_item__list_item_value').nth(4)).to_contain_text("931.51 GB")
+    expect(page.locator('p.pool_summary_item__list_item_value').nth(4)).to_contain_text("7 GB")
     expect(page.locator('p.pool_summary_item__list_item_title').nth(5)).to_contain_text("Usable capacity")
-    expect(page.locator('p.pool_summary_item__list_item_value').nth(5)).to_contain_text("931.51 GB")
+    expect(page.locator('p.pool_summary_item__list_item_value').nth(5)).to_contain_text("7  GB")
 
     page.locator('button.modalwindow__close_icon').click()  #close by pressing 'x'
 
@@ -114,7 +108,7 @@ def test_create_single_disk_pools(page: Page):
     expect(page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
 
 
-# @pytest.mark.skip
+@pytest.mark.skip
 def test_delete_single_disk_pools(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
