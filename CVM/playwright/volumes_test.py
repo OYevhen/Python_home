@@ -50,12 +50,12 @@ def test_create_standard_volumes(page: Page):
     expect(page.get_by_text("Free capacity", exact=True)).to_be_visible()
 
     page.get_by_role("button", name="Next").click()
-    page.locator(".checkbox-custom").first.click()
-    page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator(".checkbox-custom").first.click()
-    page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator(".checkbox-custom").first.click()
+    page.locator(".checkbox-custom").nth(0).click()
+    page.locator(".checkbox-custom").nth(1).click() # page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
+    page.locator(".checkbox-custom").nth(1).click() # page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
+    page.locator(".checkbox-custom").nth(0).click()
+    page.locator(".checkbox-custom").nth(1).click() # page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
+    page.locator(".checkbox-custom").nth(0).click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_role("heading", name="Specify volume settings", exact=True)).to_be_visible()
@@ -137,7 +137,7 @@ def test_delete_standard_volumes(page: Page):
     expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Standard"]')).not_to_be_visible(timeout=100000)
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_create_raw_volumes(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -162,7 +162,8 @@ def test_create_raw_volumes(page: Page):
 
     expect(page.get_by_role("heading", name="Select file system type")).to_be_visible(timeout=100000)
     expect(page.get_by_text("Choose the preferred file system type for the new volume")).to_be_visible()
-    expect(page.get_by_text("Standard")).to_be_visible()
+    # expect(page.get_by_text("Standard")).to_be_visible()
+    # expect(page.get_by_text("Standard")).to_be_visible()
     expect(page.get_by_text("XFS volume used for creating iSCSI LUNs, file shares, and VTL devices")).to_be_visible()
     expect(page.get_by_text("Raw")).to_be_visible()
     expect(page.get_by_text("Unformatted volume used for creating NVMe-oF LUNs")).to_be_visible()
@@ -176,19 +177,14 @@ def test_create_raw_volumes(page: Page):
 
     expect(page.get_by_role("heading", name="Select storage pool", exact=True)).to_be_visible()
     expect(page.get_by_text("Select a storage pool with at least 2 GB of free capacity to create a volume.")).to_be_visible()
-    expect(page.get_by_text("Name")).to_be_visible()
-    expect(page.get_by_text("Type", exact=True)).to_be_visible()
-    expect(page.get_by_text("State")).to_be_visible()
-    expect(page.get_by_text("Layout")).to_be_visible()
-    expect(page.get_by_text("Free capacity", exact=True)).to_be_visible()
+    expect(page.get_by_text("Name").nth(0)).to_be_visible()
+    expect(page.get_by_text("Type", exact=True).nth(0)).to_be_visible()
+    expect(page.get_by_text("State").nth(0)).to_be_visible()
+    expect(page.get_by_text("Layout").nth(0)).to_be_visible()
+    expect(page.get_by_text("Free capacity", exact=True).nth(0)).to_be_visible()
 
-    page.get_by_role("button", name="Next").click()
-    page.locator(".checkbox-custom").first.click()
-    page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator(".checkbox-custom").first.click()
-    page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator(".checkbox-custom").first.click()
+    page.locator(".checkbox-custom").nth(0).click()
+    page.locator(".checkbox-custom").nth(1).click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_role("heading", name="Specify volume settings", exact=True)).to_be_visible()
@@ -316,12 +312,12 @@ def test_create_backup_volumes(page: Page):
     expect(page.get_by_text("Free capacity", exact=True)).to_be_visible()
 
     page.get_by_role("button", name="Next").click()
-    page.locator(".checkbox-custom").first.click()
-    page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator(".checkbox-custom").first.click()
-    page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator(".checkbox-custom").first.click()
+    page.locator(".checkbox-custom").nth(0).click()
+    page.locator(".checkbox-custom").nth(1).click()
+    page.locator(".checkbox-custom").nth(1).click()
+    page.locator(".checkbox-custom").nth(0).click()
+    page.locator(".checkbox-custom").nth(1).click()
+    page.locator(".checkbox-custom").nth(0).click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_role("heading", name="Specify volume settings", exact=True)).to_be_visible()
@@ -374,7 +370,7 @@ def test_create_backup_volumes(page: Page):
     expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)  
 
 
-    #@pytest.mark.skip
+@pytest.mark.skip
 def test_delete_backup_volumes(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)

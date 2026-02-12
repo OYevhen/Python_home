@@ -45,8 +45,8 @@ def test_create_single_disk_pools(page: Page):
     
     page.get_by_role("row", name="Appliances Status Available").locator("span").click()
     page.get_by_role("row", name="Appliances Status Available").locator("span").click()
-    page.get_by_role("row", name="164 Online 2 14 GB").locator("span").click()
-    page.get_by_role("row", name="165 Online 2 14 GB").locator("span").click()
+    page.get_by_text(f"{appliance1_name}").click()
+    page.get_by_text(f"{appliance2_name}").click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_role("heading", name="Physical disks", exact=True)).to_be_visible(timeout=100000)
