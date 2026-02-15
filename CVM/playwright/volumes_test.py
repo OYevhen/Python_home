@@ -16,9 +16,11 @@ def test_create_standard_volumes(page: Page):
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
     if page.get_by_text("There are no storage pools yet").is_visible():
-        cvm.create_single_disk_pools()    
+        cvm.create_single_disk_pools()
     
     page.get_by_role('link', name='Volumes').click()
+    if not page.get_by_text("There are no volumes yet").is_visible():
+        cvm.delete_volumes()
 
     expect(page.get_by_role("heading", name="Volumes", exact=True)).to_be_visible()
     expect(page.get_by_text("There are no volumes yet")).to_be_visible()
@@ -51,10 +53,10 @@ def test_create_standard_volumes(page: Page):
 
     page.get_by_role("button", name="Next").click()
     page.locator(".checkbox-custom").nth(0).click()
-    page.locator(".checkbox-custom").nth(1).click() # page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
-    page.locator(".checkbox-custom").nth(1).click() # page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
+    page.locator(".checkbox-custom").nth(1).click()
+    page.locator(".checkbox-custom").nth(1).click()
     page.locator(".checkbox-custom").nth(0).click()
-    page.locator(".checkbox-custom").nth(1).click() # page.locator("tr:nth-child(2) > .wizard_table__table_body_checkbox_wrapper > .checkbox-label > .checkbox-custom").click()
+    page.locator(".checkbox-custom").nth(1).click()
     page.locator(".checkbox-custom").nth(0).click()
     page.get_by_role("button", name="Next").click()
 
@@ -162,7 +164,6 @@ def test_create_raw_volumes(page: Page):
 
     expect(page.get_by_role("heading", name="Select file system type")).to_be_visible(timeout=100000)
     expect(page.get_by_text("Choose the preferred file system type for the new volume")).to_be_visible()
-    # expect(page.get_by_text("Standard")).to_be_visible()
     # expect(page.get_by_text("Standard")).to_be_visible()
     expect(page.get_by_text("XFS volume used for creating iSCSI LUNs, file shares, and VTL devices")).to_be_visible()
     expect(page.get_by_text("Raw")).to_be_visible()

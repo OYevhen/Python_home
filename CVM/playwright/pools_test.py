@@ -16,8 +16,8 @@ def test_create_single_disk_pools(page: Page):
     
     # check if there is pools already, if yes, delete them
     page.get_by_role('link', name='Storage pools').click()
-    if page.locator(f'p[title="{appliance1_name}"]').is_visible() and page.locator(f'p[title="{appliance2_name}"]').is_visible():
-        cvm.delete_single_disk_pools()
+    if not page.get_by_text("There are no storage pools yet").is_visible():
+        cvm.delete_pools()
 
     expect(page.get_by_role("heading", name="Storage pools", exact=True)).to_be_visible()
     expect(page.get_by_text("There are no storage pools yet")).to_be_visible()

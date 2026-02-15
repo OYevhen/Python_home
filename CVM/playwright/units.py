@@ -53,14 +53,16 @@ class CVM:
         expect(self.page.locator(f'p[title="{appliance1_name}"]')).to_be_visible(timeout=100000)
         expect(self.page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
 
-    def delete_single_disk_pools(self):
+    def delete_pools(self):
         self.page.get_by_role('link', name='Storage pools').click()
-        self.page.locator(f'p[title="{appliance1_name}"]').click()
-        self.page.locator(f'p[title="{appliance2_name}"]').click()
+        self.page.locator("#checkbox").click()
+        if self.page.get_by_role("button", name="Delete pool(s)").is_disabled():
+            self.page.get_by_role('link', name='Volumes').click()
+            self.delete_volumes()
+            self.page.get_by_role('link', name='Storage pools').click()
         self.page.get_by_role("button").filter(has_text="Delete pool(s)").click()
         self.page.get_by_role("button", name="Delete").click()
-        expect(self.page.locator(f'p[title="{appliance1_name}"]')).to_be_visible(timeout=100000)
-        expect(self.page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
+        expect(self.page.get_by_text("There are no storage pools yet")).to_be_visible(timeout=100000)
     
     def create_standard_volumes(self):
         self.page.get_by_role("button").filter(has_text="Create a new volume").click()
@@ -105,6 +107,16 @@ class CVM:
         expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance1_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)
         expect(self.page.locator('tr').filter(has=self.page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)  
 
+    def delete_volumes(self):
+        self.page.locator("#checkbox").click()
+        if self.page.get_by_role("button", name="Delete volume(s)").is_disabled():
+            self.page.get_by_role('link', name='LUNs').click()
+            self.delete_luns()
+            self.page.get_by_role('link', name='Volumes').click() 
+        self.page.get_by_role("button").filter(has_text="Delete volume(s)").click()
+        self.page.get_by_role("button", name="Delete").click()
+        expect(self.page.get_by_text("There are no volumes yet")).to_be_visible(timeout=100000) 
+
     def configure_ha_networking(self):
         self.page.get_by_role('link', name='Network').click()
         self.page.get_by_role("button", name="Configure HA networking").click()
@@ -129,3 +141,10 @@ class CVM:
         self.page.get_by_role("button", name="Yes, continue").click()
         self.page.get_by_role("button", name="Configure", exact=True).click()
         expect(self.page.locator('p.wizard_table__table_item_text[title="Up"]')).to_have_count(6, timeout=100000)
+
+    def delete_luns(self):
+        self.page.locator("#checkbox").click()
+        self.page.get_by_role("button").filter(has_text="Delete LUN(s)").click()
+        self.page.locator("span").first.click()
+        self.page.get_by_role("button", name="Delete").click()
+        expect(self.page.get_by_text("There are no LUNs yet")).to_be_visible(timeout=100000)
