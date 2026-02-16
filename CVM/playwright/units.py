@@ -140,7 +140,7 @@ class CVM:
         self.page.get_by_role("button", name="Yes, continue").nth(1).click()
         self.page.get_by_role("button", name="Yes, continue").click()
         self.page.get_by_role("button", name="Configure", exact=True).click()
-        expect(self.page.locator('p.wizard_table__table_item_text[title="Up"]')).to_have_count(6, timeout=100000)
+        expect(self.page.locator('p.wizard_table__table_item_text[title="Up "]')).to_have_count(6, timeout=100000)
 
     def delete_luns(self):
         self.page.locator("#checkbox").click()

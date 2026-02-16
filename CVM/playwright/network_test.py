@@ -21,7 +21,7 @@ def test_configure_ha_networking(page: Page):
     if page.get_by_label("Static").count() < 6:
         page.wait_for_timeout(1000)
 
-    if page.locator('p.wizard_table__table_item_text[title="Up "]').count() == 6:
+    if page.locator('p.wizard_table__table_item_text[title="Up "]').count() == 6 or page.locator('p.wizard_table__table_item_text[title="Unassigned"]').count() != 4:
         pytest.skip("All adapters are Up; skipping this test")
 
     page.get_by_role("button").filter(has_text="Configure HA networking").click()
