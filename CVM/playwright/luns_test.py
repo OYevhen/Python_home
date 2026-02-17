@@ -415,3 +415,63 @@ def test_create_2ha_nvme(page: Page):
     expect(page.get_by_text("Management and selected Data adapters are used for the purpose of a heartbeat to monitor the health of nodes")).to_be_visible()
     expect(page.get_by_text("Ensure interfaces are connected to client hosts directly or through redundant switches")).to_be_visible()
     expect(page.get_by_text("For switchless SR-IOV RDMA connectivity, you can use Replication adapters to create a listener")).to_be_visible()
+
+    page.get_by_role("textbox").nth(0).click()
+    page.get_by_text("TCP").click()
+    expect(page.get_by_text("LUN name can not be empty")).to_be_visible()
+    page.get_by_text("RDMA", exact=True).hover()
+    expect(page.get_by_text("This type of transport requires one Data and one Replication network interface with RDMA capabilities.")).to_be_visible()
+    
+    page.get_by_text("Data").nth(2).click()
+    page.get_by_text("Data").nth(3).click()
+
+    expect(page.get_by_text("Selected number of network interfaces is equal")).to_be_visible()
+
+    page.get_by_text("Replication").nth(2).click()
+
+    expect(page.get_by_text("Selected number of network interfaces is not equal")).to_be_visible()
+
+    page.get_by_text("Replication").nth(2).click()
+    page.get_by_role("textbox").nth(0).fill("nlun2hatcp")
+    page.get_by_role("button", name="Next").click()
+
+    expect(page.get_by_role("heading", level=2, name="Review summary")).to_be_visible()
+    expect(page.locator("div.ha__summary-name").nth(0)).to_contain_text("Protocol")
+    expect(page.locator("div.ha__summary-description").nth(0)).to_contain_text("NVMe-oF")
+    expect(page.locator("div.ha__summary-name").nth(1)).to_contain_text("LUN Availability")
+    expect(page.locator("div.ha__summary-description").nth(1)).to_contain_text("High availability (two-way replication)")
+    expect(page.locator("div.ha__summary-name").nth(2)).to_contain_text("Appliances")
+    expect(page.locator("div.ha__summary-description").nth(2)).to_contain_text(f"{appliance1_name}{appliance2_name}")
+    expect(page.locator("div.ha__summary-name").nth(3)).to_contain_text("Volumes")
+    expect(page.locator("div.ha__summary-description").nth(3)).to_contain_text("rvolrvol")
+    expect(page.locator("div.ha__summary-name").nth(4)).to_contain_text("Management IP addresses")
+    expect(page.locator("div.ha__summary-description").nth(4)).to_contain_text(f"172.16.6.{appliance2_name}, 172.16.6.{appliance1_name}")
+    expect(page.locator("div.ha__summary-name").nth(5)).to_contain_text("Data IP addresses")
+    expect(page.locator("div.ha__summary-description").nth(5)).to_contain_text(f"14.14.14.{appliance2_name}, 14.14.14.{appliance1_name}")
+    expect(page.locator("div.ha__summary-name").nth(6)).to_contain_text("Replication IP addresses")
+    expect(page.locator("div.ha__summary-description").nth(6)).to_contain_text(f"15.15.15.{appliance2_name}, 15.15.15.{appliance1_name}")
+    expect(page.locator("div.ha__summary-name").nth(7)).to_contain_text("Failover strategy")
+    expect(page.locator("div.ha__summary-description").nth(7)).to_contain_text("Heartbeat")
+    expect(page.locator("div.ha__summary-name").nth(8)).to_contain_text("LUN")
+    expect(page.locator("div.ha__summary-description").nth(8)).to_contain_text("nlun2hatcp")
+    expect(page.locator("div.ha__summary-name").nth(9)).to_contain_text("LUN size")
+    expect(page.locator("div.ha__summary-description").nth(9)).to_contain_text("2 GB")
+    expect(page.locator("div.ha__summary-name").nth(10)).to_contain_text("Transport type")
+    expect(page.locator("div.ha__summary-description").nth(10)).to_contain_text("TCP")
+    expect(page.locator("div.ha__summary-name").nth(11)).to_contain_text("Service port")
+    expect(page.locator("div.ha__summary-description").nth(11)).to_contain_text("8009")
+    expect(page.locator("div.ha__summary-name").nth(12)).to_contain_text("Transport IP addresses")
+    expect(page.locator("div.ha__summary-description").nth(12)).to_contain_text(f"14.14.14.{appliance1_name}, 14.14.14.{appliance2_name}")
+
+
+    page.locator('button.modalwindow__close_icon').click()  #close by pressing 'x'
+
+    expect(page.get_by_text("Close Wizard")).to_be_visible()
+    expect(page.get_by_text("Are you sure you want to close the wizard? All changes will be discarded.")).to_be_visible()
+
+    page.locator('button.modalwindow__close_icon').nth(2).click()  #close by pressing 'x'
+    page.locator('button.modalwindow__close_icon').click()  #close by pressing 'x'
+    page.get_by_role("button", name="No, cancel").click()
+    page.get_by_role("button", name="Create LUN").click()
+
+    expect(page.get_by_role("row", name="nlun2hatcp")).to_be_visible(timeout=1000000)
