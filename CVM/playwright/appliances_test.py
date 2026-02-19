@@ -3,7 +3,7 @@ import pytest
 from units import *
 
 
-# @pytest.mark.skip  
+#@pytest.mark.skip  
 def test_add_appliance(page: Page): 
     cvm = CVM(page)
     cvm.login(URL1)
@@ -41,14 +41,14 @@ def test_add_appliance(page: Page):
     expect(page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
 
 
-@pytest.mark.skip   
+#@pytest.mark.skip   
 def test_add_duplicated_appliance(page: Page): 
     cvm = CVM(page)
     cvm.login(URL1)
 
     page.get_by_role('link', name='Appliances').click()
     page.get_by_role('button', name='Add Appliance').click()   
-    page.get_by_role("textbox").nth(0).fill(appliance1_name)
+    page.get_by_role("textbox").nth(0).fill(f'{URL1.removeprefix("https://").removesuffix("/")}')
     page.get_by_role("textbox").nth(1).fill(username)
     page.locator("input[type='password']").fill(password)
     page.get_by_role("button", name="Next").click()
@@ -62,16 +62,32 @@ def test_add_duplicated_appliance(page: Page):
     page.locator('button.modalwindow__close_icon').click()  #close by pressing 'x'
 
 
-@pytest.mark.skip(reason="Not implemented yet")
+#@pytest.mark.skip(reason="Not implemented yet")
 def test_add_unexisting_appliance(page: Page):
-    pass
+    cvm = CVM(page)
+    cvm.login(URL1)
 
-# Connection failed
-# Connection to appliance“TEST”failed.
-# Make sure the target appliance is connected to the same management network as the current appliance.
-# Please check the IP address of the target appliance and its network settings, and try again.
+    page.get_by_role('link', name='Appliances').click()
+    page.get_by_role('button', name='Add Appliance').click()   
+    page.get_by_role("textbox").nth(0).fill('TEST')
+    page.get_by_role("textbox").nth(1).fill(username)
 
-@pytest.mark.skip    
+    expect(page.get_by_text("Indicate a valid IP address")).to_be_visible()
+
+    page.get_by_role("textbox").nth(0).fill('172.16.6.224')
+    page.locator("input[type='password']").fill(password)
+    page.get_by_role("button", name="Next").click()
+
+    expect(page.get_by_text("Connection failed")).to_be_visible(timeout=10000)
+    expect(page.get_by_text("Connection to appliance“172.16.6.224”failed.")).to_be_visible()
+    expect(page.get_by_text("Make sure the target appliance is connected to the same management network as the current appliance.")).to_be_visible()
+    expect(page.get_by_text("Please check the IP address of the target appliance and its network settings, and try again.")).to_be_visible()
+    
+    page.get_by_role("button", name="Close").first.click()
+    page.locator('button.modalwindow__close_icon').click()  #close by pressing 'x'
+
+
+#@pytest.mark.skip    
 def test_remove_appliance(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)

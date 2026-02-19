@@ -4,7 +4,7 @@ import pytest
 from units import *
 
 
-# @pytest.mark.skip
+#@pytest.mark.skip
 def test_create_single_disk_pools(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -108,7 +108,7 @@ def test_create_single_disk_pools(page: Page):
     expect(page.locator(f'p[title="{appliance2_name}"]')).to_be_visible(timeout=100000)
 
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_delete_single_disk_pools(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)

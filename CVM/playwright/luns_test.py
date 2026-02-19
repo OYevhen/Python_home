@@ -3,7 +3,7 @@ from units import *
 import pytest
 
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_create_2ha_iscsi_ram(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -240,11 +240,11 @@ def test_create_2ha_iscsi_ram(page: Page):
 
     expect(page.get_by_role("row", name="ilun2haram")).to_be_visible(timeout=1000000)
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_create_2ha_iscsi_disk(page: Page):
     pass
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_create_2ha_iscsi_continuous(page: Page):
     pass
 

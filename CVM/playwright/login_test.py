@@ -2,7 +2,7 @@ from playwright.sync_api import Page, expect
 import pytest
 from units import *
 
-# @pytest.mark.skip
+#@pytest.mark.skip
 def test_login_success(page: Page): 
     page.context.ignore_https_errors = True
     page.goto(URL1)
@@ -30,7 +30,7 @@ def test_login_failed(page: Page):
     pass
 
 
-# @pytest.mark.skip
+#@pytest.mark.skip
 def test_logout(page: Page): 
     cvm = CVM(page)
     cvm.login(URL1)

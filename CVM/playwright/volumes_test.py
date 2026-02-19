@@ -3,7 +3,7 @@ import pytest
 from units import *
 
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_create_standard_volumes(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -109,7 +109,7 @@ def test_create_standard_volumes(page: Page):
     expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Standard"]')).to_be_visible(timeout=100000)
     expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Standard"]')).to_be_visible(timeout=100000)
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_delete_standard_volumes(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -139,7 +139,7 @@ def test_delete_standard_volumes(page: Page):
     expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Standard"]')).not_to_be_visible(timeout=100000)
 
 
-# @pytest.mark.skip
+#@pytest.mark.skip
 def test_create_raw_volumes(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -238,7 +238,7 @@ def test_create_raw_volumes(page: Page):
     expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Raw"]')).to_be_visible(timeout=100000)    
 
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_delete_raw_volumes(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -268,7 +268,7 @@ def test_delete_raw_volumes(page: Page):
     expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator(f'p[title="Raw"]')).not_to_be_visible(timeout=100000)
 
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_create_backup_volumes(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -371,7 +371,7 @@ def test_create_backup_volumes(page: Page):
     expect(page.locator('tr').filter(has=page.locator(f'p[title="{appliance2_name}"]')).locator('p[title="Backup repository"]')).to_be_visible(timeout=100000)  
 
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_delete_backup_volumes(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)

@@ -3,7 +3,7 @@ import pytest
 from units import *
 
 
-# @pytest.mark.skip
+#@pytest.mark.skip
 def test_configure_ha_networking(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
