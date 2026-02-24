@@ -15,6 +15,22 @@ def test_create_single_disk_pools(page: Page):
         cvm.add_appliance()
     
     # check if there is pools already, if yes, delete them
+    page.get_by_role('link', name='File shares').click()
+    if not page.get_by_text("There are no file shares yet").is_visible():
+        cvm.delete_file_shares()
+
+    page.get_by_role('link', name='LUNs').click()
+    if not page.get_by_text("There are no LUNs yet").is_visible():
+        cvm.delete_luns()
+
+    page.get_by_role('link', name='Volumes').click()
+    if not page.get_by_text("There are no volumes yet").is_visible():
+        cvm.delete_volumes()
+
+    page.get_by_role('link', name='VTL').click()
+    if not page.get_by_text("There are no VTL devices yet").is_visible():
+        cvm.delete_vtl_devices()
+
     page.get_by_role('link', name='Storage pools').click()
     if not page.get_by_text("There are no storage pools yet").is_visible():
         cvm.delete_pools()
@@ -51,14 +67,17 @@ def test_create_single_disk_pools(page: Page):
 
     expect(page.get_by_role("heading", name="Physical disks", exact=True)).to_be_visible(timeout=100000)
     expect(page.get_by_text("Select physical disks to include in storage pools on each appliance")).to_be_visible()
+
+    page.locator(".icon_tooltip__icon").hover()
+    expect(page.get_by_text("Each node's storage pool should contain the same number of disks. Ensure the selected disks have a similar media type and are connected to the same storage controller. For optimal performance, use disks of the same size.")).to_be_visible()
     expect(page.get_by_text("Total raw capacity of selected disks:").nth(0)).to_be_visible()
     expect(page.get_by_text("Total raw capacity of selected disks:").nth(1)).to_be_visible()
 
-    page.get_by_role("cell").first.click()
+    page.get_by_text("GB").nth(0).click()
 
     expect(page.get_by_text("Selected number of disks is not equal")).to_be_visible()
     
-    page.get_by_role("cell").filter(has_text=re.compile(r"^$")).nth(2).click()
+    page.get_by_text("GB").nth(2).click()
 
     expect(page.get_by_text("Total raw capacity of selected disks:7 GB").nth(0)).to_be_visible()
     expect(page.get_by_text("Total raw capacity of selected disks:7 GB").nth(1)).to_be_visible()
@@ -115,7 +134,8 @@ def test_delete_single_disk_pools(page: Page):
 
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
-    if not page.locator(f'p[title="{appliance1_name}"]').is_visible() or not page.locator(f'p[title="{appliance2_name}"]').is_visible():
+    # if not page.locator(f'p[title="{appliance1_name}"]').is_visible() or not page.locator(f'p[title="{appliance2_name}"]').is_visible():
+    if page.get_by_text("There are no storage pools yet").is_visible():
         cvm.create_single_disk_pools()
 
     page.get_by_role("row", name="Name Type State Layout").locator("span").click()

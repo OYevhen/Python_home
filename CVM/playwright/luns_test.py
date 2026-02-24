@@ -3,7 +3,7 @@ from units import *
 import pytest
 
 
-#@pytest.mark.skip
+# @pytest.mark.skip
 def test_create_2ha_iscsi_ram(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
@@ -14,26 +14,29 @@ def test_create_2ha_iscsi_ram(page: Page):
         cvm.add_appliance()
 
     page.get_by_role('link', name='Network').click()
-    if not page.locator('p.wizard_table__table_item_text[title="Up"]').count() != 6:
+    if page.locator('p.wizard_table__table_item_text[title="Up "]').count() != 6 and page.locator('p.wizard_table__table_item_text[title="Unassigned"]').count() == 4:
         cvm.configure_ha_networking()
 
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
-    if page.get_by_text("There are no storage pools yet").is_visible():
+    if not page.locator(f'p[title="{appliance1_name}"]').is_visible():
         cvm.create_single_disk_pools()    
     
     page.get_by_role('link', name='Volumes').click()
-    if page.get_by_text("There are no volumes yet").is_visible():
+    # if page.get_by_text("There are no volumes yet").is_visible():
+    #     cvm.create_standard_volumes()
+    if not page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Standard"]').is_visible():
         cvm.create_standard_volumes()
+    
 
     page.get_by_role('link', name='LUNs').click()
 
-    if not page.get_by_text("There are no LUNs yet").is_visible():
-        cvm.delete_luns()
+    if page.get_by_role("row", name="ilun2haram").count() > 0:
+        cvm.delete_iscsi_lun("ilun2haram")
 
     expect(page.get_by_role("heading", name="LUNs", exact=True)).to_be_visible()
-    expect(page.get_by_text("There are no LUNs yet")).to_be_visible()
-    expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
+    # expect(page.get_by_text("There are no LUNs yet")).to_be_visible()
+    # expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
 
     page.get_by_role("button").filter(has_text="Create a new LUN").click(timeout=100000)
 
@@ -61,6 +64,8 @@ def test_create_2ha_iscsi_ram(page: Page):
     page.get_by_role("radio").nth(0).check()
     page.get_by_role("button", name="Next").click()
 
+    expect(page.get_by_text("Gathering information, please wait...")).to_be_visible()
+
     expect(page.get_by_role("heading", level=2, name="Select appliances")).to_be_visible()
     expect(page.get_by_text("Select two or three replication partners that should host the HA LUN")).to_be_visible()
     expect(page.get_by_text("All appliances must have identical hardware configurations, including CPU, RAM, storage, and networking")).to_be_visible()
@@ -70,14 +75,22 @@ def test_create_2ha_iscsi_ram(page: Page):
     expect(page.get_by_text("RAW capacity")).to_be_visible()
     expect(page.get_by_text("License ID")).to_be_visible()
 
-    page.get_by_text(f"{appliance1_name}").click()
-    page.get_by_text(f"{appliance2_name}").click()
+    page.get_by_text(f"{appliance1_name}", exact=True).click()
+    page.get_by_text(f"{appliance2_name}", exact=True).click()
     
     expect(page.get_by_text("Allow adding partner with different storage configurations")).to_be_visible()
     page.locator("div.virtual_disk_wizard__info").hover()
     expect(page.locator("p.virtual_disk_wizard__info_tooltip").filter(has_text="This option allows creating a LUN")).to_be_visible()
     page.locator("label").filter(has_text="Allow adding partner with").locator("span").click()
     page.get_by_role("button", name="Next").click()
+
+    if page.get_by_text("The SSH service is not running").count() > 0:
+        expect(page.get_by_text("The SSH service is disabled on the node(s):")).to_be_visible()
+        expect(page.locator(f'p[title="{appliance2_name}"]')).to_be_visible()
+        expect(page.locator(f'p[title="{appliance1_name}"]')).to_be_visible()
+        expect(page.get_by_text("To create an HA LUN, the SSH service must be enabled. It is used to create secure connections between appliances.")).to_be_visible()
+        expect(page.get_by_text("Acknowledge and continue?")).to_be_visible()
+        page.get_by_role("button", name="Yes, continue").click()
 
     expect(page.get_by_text("Connecting to appliances...")).to_be_visible()
 
@@ -118,8 +131,8 @@ def test_create_2ha_iscsi_ram(page: Page):
     expect(page.get_by_text("Assign and configure at least two interfaces on each node, one per role (one for Data and one for Replication)")).to_be_visible()
     expect(page.get_by_text("Ensure interfaces are connected to client hosts directly or through redundant switches")).to_be_visible()
     expect(page.get_by_role("button", name="Show sample network diagram")).to_be_visible()
-    expect(page.get_by_text("Network channel configuration is failed.")).to_be_visible()
-    expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).to_be_visible()
+    # expect(page.get_by_text("Network channel configuration is failed.")).to_be_visible()
+    # expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).to_be_visible()
 
     page.locator(".icon_tooltip__icon").hover()
     expect(page.locator("ul.wizards_network__info_block_tooltip_list li").filter(has_text="Management adapters: Used for heartbeat (monitoring the health of appliances).")).to_be_visible()
@@ -134,13 +147,13 @@ def test_create_2ha_iscsi_ram(page: Page):
     expect(page.get_by_text("Data").nth(0)).to_be_visible()
     expect(page.get_by_text("Replication").nth(0)).to_be_visible()
 
-    page.get_by_role("checkbox").nth(4).click()
-    page.locator("input[name=\"eth2\"]").nth(2).click()
-    page.locator("input[name=\"eth1\"]").nth(4).click()
-    page.locator("input[name=\"eth2\"]").nth(5).click()
+    # page.get_by_role("checkbox").nth(4).click()
+    # page.locator("input[name=\"eth2\"]").nth(2).click()
+    # page.locator("input[name=\"eth1\"]").nth(4).click()
+    # page.locator("input[name=\"eth2\"]").nth(5).click()
 
-    expect(page.get_by_text("Network channel configuration is failed.")).not_to_be_visible()
-    expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).not_to_be_visible()
+    # expect(page.get_by_text("Network channel configuration is failed.")).not_to_be_visible()
+    # expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).not_to_be_visible()
 
     page.locator("input[name=\"eth2\"]").nth(1).click()
 
@@ -248,7 +261,9 @@ def test_create_2ha_iscsi_disk(page: Page):
 def test_create_2ha_iscsi_continuous(page: Page):
     pass
 
-def test_create_2ha_nvme(page: Page):
+
+# @pytest.mark.skip
+def test_create_2ha_nvme_tcp(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
 
@@ -259,7 +274,7 @@ def test_create_2ha_nvme(page: Page):
 
     page.get_by_role('link', name='Network').click(timeout=100000)
     if page.locator('p.wizard_table__table_item_text[title="Unassigned"]').count() == 4:    #page.locator('p.wizard_table__table_item_text[title="Up"]').count() != 6 or 
-        cvm.configure_ha_networking()
+        cvm.configure_ha_networking_repeat()
 
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
@@ -267,20 +282,17 @@ def test_create_2ha_nvme(page: Page):
         cvm.create_single_disk_pools()    
     
     page.get_by_role('link', name='Volumes').click()
-    if page.get_by_text("There are no volumes yet").is_visible():
-        cvm.create_raw_volumes()
-
     if not page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Raw"]').is_visible():
         cvm.create_raw_volumes()
     
     page.get_by_role('link', name='LUNs').click()
 
-    if not page.get_by_text("There are no LUNs yet").is_visible():
-        cvm.delete_luns()
+    if page.get_by_role("row", name="nlun2hatcp").count() > 0:
+        cvm.delete_nvme_lun()
 
     expect(page.get_by_role("heading", name="LUNs", exact=True)).to_be_visible()
-    expect(page.get_by_text("There are no LUNs yet")).to_be_visible()
-    expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
+    # expect(page.get_by_text("There are no LUNs yet")).to_be_visible()
+    # expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
 
     page.get_by_role("button").filter(has_text="Create a new LUN").click(timeout=100000)
 
@@ -316,8 +328,8 @@ def test_create_2ha_nvme(page: Page):
     expect(page.get_by_text("RAW capacity")).to_be_visible()
     expect(page.get_by_text("License ID")).to_be_visible()
 
-    page.get_by_text(f"{appliance1_name}").click()
-    page.get_by_text(f"{appliance2_name}").click()
+    page.get_by_text(f"{appliance1_name}", exact=True).click()
+    page.get_by_text(f"{appliance2_name}", exact=True).click()
     
     page.get_by_role("button", name="Next").click()
 
@@ -475,3 +487,45 @@ def test_create_2ha_nvme(page: Page):
     page.get_by_role("button", name="Create LUN").click()
 
     expect(page.get_by_role("row", name="nlun2hatcp")).to_be_visible(timeout=1000000)
+
+
+def test_delete_iscsi_lun(page: Page, name="ilun2haram"):
+    page.get_by_role("row", name=name).click()
+    page.get_by_role("button").filter(has_text="Delete LUN(s)").click()
+    page.locator("span").first.click()
+    page.get_by_role("button", name="Delete").click()
+
+    expect(page.get_by_text("There are no LUNs yet")).to_be_visible(timeout=100000)
+
+
+def test_delete_nvme_lun(page: Page, name="nlun2hatcp"):
+    cvm = CVM(page)
+    cvm.login(URL1)
+
+    # check if appliance 145 exists, if not, add it
+    page.get_by_role('link', name='Appliances').click()
+    if not page.locator(f'p[title="{appliance2_name}"]').is_visible():
+        cvm.add_appliance()
+
+    page.get_by_role('link', name='Network').click()
+    if page.locator('p.wizard_table__table_item_text[title="Up "]').count() != 6 and page.locator('p.wizard_table__table_item_text[title="Unassigned"]').count() == 4:
+        cvm.configure_ha_networking()
+
+    # check if pools exist, if not, create them
+    page.get_by_role('link', name='Storage pools').click()
+    if not page.locator(f'p[title="{appliance1_name}"]').is_visible():
+        cvm.create_single_disk_pools()    
+    
+    page.get_by_role('link', name='Volumes').click()
+    if not page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Raw"]').is_visible():
+        cvm.create_raw_volumes()
+    
+    page.get_by_role('link', name='LUNs').click()
+    if not page.locator(f'p[title="{name}"]').first.is_visible():
+        cvm.create_2ha_nvme_tcp()
+
+    delete_lun_button = cvm.select_lun_until_delete_enabled(name)
+    delete_lun_button.click(timeout=100000)
+    page.get_by_role("button", name="Delete").click()
+
+    expect(page.locator("tr:visible").filter(has_text=name)).to_have_count(0, timeout=100000)

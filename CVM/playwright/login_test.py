@@ -18,16 +18,27 @@ def test_login_success(page: Page):
     page.locator('span.checkbox-custom').click()
     page.locator('span.checkbox-custom').click()
     
-    expect(page.locator('button.button_modal__wrapper--disabled')).to_have_count(0)
+    expect(page.locator('button.button_modal__wrapper--disabled')).to_have_count(0) #Sign in
 
     page.get_by_role('button', name='Sign in').click()
-    
+
+    expect(page.get_by_text("Authorization...")).to_be_visible()
     expect(page.get_by_role('link', name='Dashboard')).to_be_visible(timeout=10000)
 
 
-@pytest.mark.skip(reason="Not implemented yet")
+#@pytest.mark.skip(reason="Not implemented yet")
 def test_login_failed(page: Page):
-    pass
+    page.context.ignore_https_errors = True
+    page.goto(URL1)
+
+    expect(page.locator('button.button_modal__wrapper--disabled')).to_be_visible(timeout=10000)
+    
+    page.locator('input[type="text"]').first.fill('wrong_user')
+    page.locator('input[type="password"]').fill(password)
+
+    page.get_by_role('button', name='Sign in').click()
+    expect(page.get_by_text("Authorization...")).to_be_visible()
+    expect(page.get_by_text("Invalid password or username")).to_be_visible(timeout=10000)
 
 
 #@pytest.mark.skip

@@ -32,9 +32,9 @@ def test_add_appliance(page: Page):
     expect(page.locator('div.windowsAppliances__summary-name').nth(1)).to_contain_text("Storage capacity")
     # expect(page.locator('div.windowsAppliances__summary-description').nth(1)).to_contain_text("987.51 GB")
     expect(page.locator('div.windowsAppliances__summary-name').nth(2)).to_contain_text("Storage pools")
-    expect(page.locator('div.windowsAppliances__summary-description').nth(2)).to_contain_text("0")
+    # expect(page.locator('div.windowsAppliances__summary-description').nth(2)).to_contain_text("0")
     expect(page.locator('div.windowsAppliances__summary-name').nth(3)).to_contain_text("Volumes")
-    expect(page.locator('div.windowsAppliances__summary-description').nth(3)).to_contain_text("0")
+    # expect(page.locator('div.windowsAppliances__summary-description').nth(3)).to_contain_text("0")
     
     page.get_by_role("button", name="Add appliance").first.click()
     

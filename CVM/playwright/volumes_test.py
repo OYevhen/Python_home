@@ -13,15 +13,28 @@ def test_create_standard_volumes(page: Page):
     if not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         cvm.add_appliance()
 
+    page.get_by_role('link', name='File shares').click()
+    if not page.get_by_text("There are no file shares yet").is_visible():
+        cvm.delete_file_shares()
+
+    page.get_by_role('link', name='LUNs').click()
+    if not page.get_by_text("There are no LUNs yet").is_visible():
+        cvm.delete_luns()
+
+    page.get_by_role('link', name='VTL').click()
+    if not page.get_by_text("There are no VTL devices yet").is_visible():
+        cvm.delete_vtl()
+
+    page.get_by_role('link', name='Volumes').click()
+    if not page.get_by_text("There are no volumes yet").is_visible():
+        cvm.delete_volumes()
+
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
     if page.get_by_text("There are no storage pools yet").is_visible():
         cvm.create_single_disk_pools()
     
     page.get_by_role('link', name='Volumes').click()
-    if not page.get_by_text("There are no volumes yet").is_visible():
-        cvm.delete_volumes()
-
     expect(page.get_by_role("heading", name="Volumes", exact=True)).to_be_visible()
     expect(page.get_by_text("There are no volumes yet")).to_be_visible()
     expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
@@ -32,7 +45,7 @@ def test_create_standard_volumes(page: Page):
     expect(page.get_by_text("Choose the preferred file system type for the new volume")).to_be_visible()
     expect(page.get_by_text("Standard")).to_be_visible()
     expect(page.get_by_text("XFS volume used for creating iSCSI LUNs, file shares, and VTL devices")).to_be_visible()
-    expect(page.get_by_text("Raw")).to_be_visible()
+    expect(page.get_by_text("Raw", exact=True)).to_be_visible()
     expect(page.get_by_text("Unformatted volume used for creating NVMe-oF LUNs")).to_be_visible()
     expect(page.get_by_text("Backup repository", exact=True)).to_be_visible()
     expect(page.get_by_text("XFS volume with reflink (data block sharing) and CRC enabled, used for creating hardened backup repositories")).to_be_visible()
@@ -52,12 +65,12 @@ def test_create_standard_volumes(page: Page):
     expect(page.get_by_text("Free capacity", exact=True)).to_be_visible()
 
     page.get_by_role("button", name="Next").click()
-    page.locator(".checkbox-custom").nth(0).click()
-    page.locator(".checkbox-custom").nth(1).click()
-    page.locator(".checkbox-custom").nth(1).click()
-    page.locator(".checkbox-custom").nth(0).click()
-    page.locator(".checkbox-custom").nth(1).click()
-    page.locator(".checkbox-custom").nth(0).click()
+    page.get_by_text("Single Disk").nth(0).click()
+    page.get_by_text("Single Disk").nth(1).click()
+    page.get_by_text("Single Disk").nth(1).click()
+    page.get_by_text("Single Disk").nth(0).click()
+    page.get_by_text("Single Disk").nth(0).click()
+    page.get_by_text("Single Disk").nth(1).click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_role("heading", name="Specify volume settings", exact=True)).to_be_visible()
@@ -149,12 +162,26 @@ def test_create_raw_volumes(page: Page):
     if not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         cvm.add_appliance()
 
+    page.get_by_role('link', name='File shares').click()
+    if not page.get_by_text("There are no file shares yet").is_visible():
+        cvm.delete_file_shares()
+
+    page.get_by_role('link', name='LUNs').click()
+    if not page.get_by_text("There are no LUNs yet").is_visible():
+        cvm.delete_luns()
+
+    page.get_by_role('link', name='VTL').click()
+    if not page.get_by_text("There are no VTL devices yet").is_visible():
+        cvm.delete_vtl()
+
+    page.get_by_role('link', name='Volumes').click()
+    if not page.get_by_text("There are no volumes yet").is_visible():
+        cvm.delete_volumes()
+
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
-    if not page.locator(f'p[title="{appliance1_name}"]').is_visible() or not page.locator(f'p[title="{appliance2_name}"]').is_visible():
-        expect(page.get_by_text("There are no volumes yet")).to_be_visible()
-        expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
-        cvm.create_single_disk_pools()    
+    if page.get_by_text("There are no storage pools yet").is_visible():
+        cvm.create_single_disk_pools()  
     
     page.get_by_role('link', name='Volumes').click()
 
@@ -278,12 +305,26 @@ def test_create_backup_volumes(page: Page):
     if not page.locator(f'p[title="{appliance2_name}"]').is_visible():
         cvm.add_appliance()
 
+    page.get_by_role('link', name='File shares').click()
+    if not page.get_by_text("There are no file shares yet").is_visible():
+        cvm.delete_file_shares()
+
+    page.get_by_role('link', name='LUNs').click()
+    if not page.get_by_text("There are no LUNs yet").is_visible():
+        cvm.delete_luns()
+
+    page.get_by_role('link', name='VTL').click()
+    if not page.get_by_text("There are no VTL devices yet").is_visible():
+        cvm.delete_vtl()
+
+    page.get_by_role('link', name='Volumes').click()
+    if not page.get_by_text("There are no volumes yet").is_visible():
+        cvm.delete_volumes()
+
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
-    if not page.locator(f'p[title="{appliance1_name}"]').is_visible() or not page.locator(f'p[title="{appliance2_name}"]').is_visible():
-        expect(page.get_by_text("There are no volumes yet")).to_be_visible()
-        expect(page.get_by_text("Start sharing your storage resources to clients by creating a new one")).to_be_visible()
-        cvm.create_single_disk_pools()    
+    if page.get_by_text("There are no storage pools yet").is_visible():
+        cvm.create_single_disk_pools()
     
     page.get_by_role('link', name='Volumes').click()
 
@@ -338,18 +379,18 @@ def test_create_backup_volumes(page: Page):
 
     expect(page.get_by_role("heading", name="Summary")).to_be_visible(timeout=100000)
     expect(page.get_by_text("Review your settings before creating a volume")).to_be_visible()
-    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text="144")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text=f"{appliance1_name}")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(0)).to_contain_text("Storage pool")
-    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text="144:")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text=f"{appliance1_name}:")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(1)).to_contain_text("Volume name")
     expect(page.locator('div.windowsVolumes__summary-description').nth(1)).to_contain_text("bvol")
     expect(page.locator('div.windowsVolumes__summary-name').nth(2)).to_contain_text("Size")
     expect(page.locator('div.windowsVolumes__summary-description').nth(2)).to_contain_text("2 GB")
     expect(page.locator('div.windowsVolumes__summary-name').nth(3)).to_contain_text("Filesystem settings")
     expect(page.locator('div.windowsVolumes__summary-description').nth(3)).to_contain_text("Backup repository")
-    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text="145")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-titleName').filter(has_text=f"{appliance2_name}")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(4)).to_contain_text("Storage pool")
-    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text="145:")).to_be_visible()
+    expect(page.locator('span.windowsVolumes__summary-description_dotted_text').filter(has_text=f"{appliance2_name}:")).to_be_visible()
     expect(page.locator('div.windowsVolumes__summary-name').nth(5)).to_contain_text("Volume name")
     expect(page.locator('div.windowsVolumes__summary-description').nth(5)).to_contain_text("bvol")
     expect(page.locator('div.windowsVolumes__summary-name').nth(6)).to_contain_text("Size")
