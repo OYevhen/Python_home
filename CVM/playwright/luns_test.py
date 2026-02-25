@@ -1,10 +1,10 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page, TimeoutError as PlaywrightTimeoutError, expect
 from units import *
 import pytest
 
 
 # @pytest.mark.skip
-def test_create_2ha_iscsi_ram(page: Page):
+def test_create_2ha_iscsi_ram_lun(page: Page, name="ilun2haram"):
     cvm = CVM(page)
     cvm.login(URL1)
 
@@ -31,8 +31,8 @@ def test_create_2ha_iscsi_ram(page: Page):
 
     page.get_by_role('link', name='LUNs').click()
 
-    if page.get_by_role("row", name="ilun2haram").count() > 0:
-        cvm.delete_iscsi_lun("ilun2haram")
+    if page.get_by_role("row", name=name).count() > 0:
+        cvm.delete_iscsi_lun(name)
 
     expect(page.get_by_role("heading", name="LUNs", exact=True)).to_be_visible()
     # expect(page.get_by_text("There are no LUNs yet")).to_be_visible()
@@ -193,7 +193,7 @@ def test_create_2ha_iscsi_ram(page: Page):
     page.locator("input.MuiInputBase-input").nth(0).fill("!@#")
     page.locator("input.MuiInputBase-input").nth(1).click()
     expect(page.get_by_text("Must start with a Latin letter or number")).to_be_visible()
-    page.locator("input.MuiInputBase-input").nth(0).fill("ilun2haram")
+    page.locator("input.MuiInputBase-input").nth(0).fill(name)
     expect(page.get_by_text("A minimum of 1 GB is required")).to_be_visible()
     page.locator("input.MuiInputBase-input").nth(1).fill("2")
     page.locator("input.MuiInputBase-input").nth(0).click()
@@ -235,7 +235,7 @@ def test_create_2ha_iscsi_ram(page: Page):
     expect(page.locator("div.ha__summary-name").nth(7)).to_contain_text("Replication IP addresses")
     expect(page.locator("div.ha__summary-description").nth(7)).to_contain_text(f"15.15.15.{appliance2_name}, 15.15.15.{appliance1_name}")
     expect(page.locator("div.ha__summary-name").nth(8)).to_contain_text("LUN")
-    expect(page.locator("div.ha__summary-description").nth(8)).to_contain_text("ilun2haram")
+    expect(page.locator("div.ha__summary-description").nth(8)).to_contain_text(name)
     expect(page.locator("div.ha__summary-name").nth(9)).to_contain_text("LUN size")
     expect(page.locator("div.ha__summary-description").nth(9)).to_contain_text("1 GB")
     expect(page.locator("div.ha__summary-name").nth(10)).to_contain_text("Journal type")
@@ -251,19 +251,19 @@ def test_create_2ha_iscsi_ram(page: Page):
     page.get_by_role("button", name="No, cancel").click()
     page.get_by_role("button", name="Create LUN").click()
 
-    expect(page.get_by_role("row", name="ilun2haram")).to_be_visible(timeout=1000000)
+    expect(page.get_by_role("row", name=name)).to_be_visible(timeout=1000000)
 
 #@pytest.mark.skip
-def test_create_2ha_iscsi_disk(page: Page):
+def test_create_2ha_iscsi_disk_lun(page: Page):
     pass
 
 #@pytest.mark.skip
-def test_create_2ha_iscsi_continuous(page: Page):
+def test_create_2ha_iscsi_continuous_lun(page: Page):
     pass
 
 
 # @pytest.mark.skip
-def test_create_2ha_nvme_tcp(page: Page):
+def test_create_2ha_nvme_tcp_lun(page: Page):
     cvm = CVM(page)
     cvm.login(URL1)
 
@@ -490,12 +490,47 @@ def test_create_2ha_nvme_tcp(page: Page):
 
 
 def test_delete_iscsi_lun(page: Page, name="ilun2haram"):
-    page.get_by_role("row", name=name).click()
+    cvm = CVM(page)
+    cvm.login(URL1)
+
+    # check if appliance 145 exists, if not, add it
+    page.get_by_role('link', name='Appliances').click()
+    if not page.locator(f'p[title="{appliance2_name}"]').is_visible():
+        cvm.add_appliance()
+
+    page.get_by_role('link', name='Network').click()
+    if page.locator('p.wizard_table__table_item_text[title="Up "]').count() != 6 and page.locator('p.wizard_table__table_item_text[title="Unassigned"]').count() == 4:
+        cvm.configure_ha_networking()
+
+    # check if pools exist, if not, create them
+    page.get_by_role('link', name='Storage pools').click()
+    if not page.locator(f'p[title="{appliance1_name}"]').is_visible():
+        cvm.create_single_disk_pools()    
+    
+    page.get_by_role('link', name='Volumes').click()
+    if not page.locator('tr').filter(has=page.locator(f'p[title="{appliance1_name}"]')).locator(f'p[title="Standard"]').is_visible():
+        cvm.create_standard_volumes()
+    
+    page.get_by_role('link', name='LUNs').click()
+    if not page.locator(f'p[title="{name}"]').first.is_visible():
+        cvm.create_2ha_iscsi_ram_lun()
+    
+    page.get_by_role("row", name=name).first.click()
     page.get_by_role("button").filter(has_text="Delete LUN(s)").click()
+
+    expect(page.get_by_role("heading", level=3,name="Delete LUN")).to_be_visible()
+    expect(page.locator(f'div.confirm_wizardNew__itemName[title="{name}"]')).to_be_visible()
+    expect(page.get_by_text("Remove configuration and img files from the volume")).to_be_visible()
+
     page.locator("span").first.click()
+    page.locator("span").first.click()
+    page.locator("span").first.click()
+
+    expect(page.get_by_text("This action will permanently destroy selected LUN")).to_be_visible()
+
     page.get_by_role("button", name="Delete").click()
 
-    expect(page.get_by_text("There are no LUNs yet")).to_be_visible(timeout=100000)
+    expect(page.locator("tr:visible").filter(has_text=name)).to_have_count(0, timeout=100000)
 
 
 def test_delete_nvme_lun(page: Page, name="nlun2hatcp"):
@@ -523,9 +558,10 @@ def test_delete_nvme_lun(page: Page, name="nlun2hatcp"):
     page.get_by_role('link', name='LUNs').click()
     if not page.locator(f'p[title="{name}"]').first.is_visible():
         cvm.create_2ha_nvme_tcp()
-
-    delete_lun_button = cvm.select_lun_until_delete_enabled(name)
-    delete_lun_button.click(timeout=100000)
-    page.get_by_role("button", name="Delete").click()
+    try:
+        page.locator(f'p[title="{name}"]').first.wait_for(state="visible", timeout=15000)
+    except PlaywrightTimeoutError:
+        cvm.create_2ha_nvme_tcp()
+    cvm.delete_nvme_lun(name)
 
     expect(page.locator("tr:visible").filter(has_text=name)).to_have_count(0, timeout=100000)
