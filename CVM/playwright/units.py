@@ -1,7 +1,7 @@
 from playwright.sync_api import expect
 
-URL1 = "https://172.16.6.164/"
-URL2 = "https://172.16.6.165/"
+URL1 = "https://172.16.6.147/"
+URL2 = "https://172.16.6.148/"
 username = "user"
 password = "rds123RDS!@#"
 appliance1_name = f"{URL1.split('.')[-1].rstrip('/')}"
@@ -122,18 +122,18 @@ class CVM:
         self.page.get_by_role("row", name="Appliance Status Software").locator("span").click()
         self.page.get_by_role("button", name="Next").click()
 
-        self.page.get_by_role("textbox").first.fill(f"20.20.180.{appliance1_name}")
+        self.page.get_by_role("textbox").first.fill(f"14.14.14.{appliance1_name}")
         self.page.get_by_role("textbox").nth(1).fill("24")
-        self.page.get_by_role("checkbox").first.click()
-        self.page.get_by_role("textbox").nth(2).fill(f"10.10.180.{appliance1_name}")
+        self.page.locator("#ens224").nth(0).check()
+        self.page.get_by_role("textbox").nth(2).fill(f"15.15.15.{appliance1_name}")
         self.page.get_by_role("textbox").nth(3).fill("24")
-        self.page.get_by_role("checkbox").nth(3).click()
-        self.page.get_by_role("textbox").nth(4).fill(f"20.20.180.{appliance2_name}")
+        self.page.locator("#ens256").nth(1).check()
+        self.page.get_by_role("textbox").nth(4).fill(f"14.14.14.{appliance2_name}")
         self.page.get_by_role("textbox").nth(5).fill("24")
-        self.page.get_by_role("checkbox").nth(4).click()
-        self.page.locator(f"div:nth-child(7) > .dropdown > .dropdown_content > .wizard_table__container > #wizard_table > .wizard_table__table_tbody_wrapper > tr:nth-child(2) > td:nth-child(5) > .wizard_table__table_item_text_wrapper > .table_input__wrapper > .table_input__container").fill(f"10.10.180.{appliance2_name}")
+        self.page.locator("#ens224").nth(2).check()
+        self.page.locator(f"div:nth-child(7) > .dropdown > .dropdown_content > .wizard_table__container > #wizard_table > .wizard_table__table_tbody_wrapper > tr:nth-child(2) > td:nth-child(5) > .wizard_table__table_item_text_wrapper > .table_input__wrapper > .table_input__container").fill(f"15.15.15.{appliance2_name}")
         self.page.locator(f"div:nth-child(7) > .dropdown > .dropdown_content > .wizard_table__container > #wizard_table > .wizard_table__table_tbody_wrapper > tr:nth-child(2) > td:nth-child(6) > .wizard_table__table_item_text_wrapper > .table_input__wrapper > .table_input__container").fill("24")
-        self.page.locator("input[name=\"eth2\"]").nth(3).click()
+        self.page.locator("#ens256").nth(3).check()
         self.page.get_by_role("spinbutton").fill("9000")
 
         self.page.get_by_role("button", name="Next").click()

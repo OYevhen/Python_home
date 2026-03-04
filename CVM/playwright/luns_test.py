@@ -14,7 +14,7 @@ def test_create_2ha_iscsi_ram_lun(page: Page, name="ilun2haram"):
         cvm.add_appliance()
 
     page.get_by_role('link', name='Network').click()
-    if page.locator('p.wizard_table__table_item_text[title="Up "]').count() != 6 and page.locator('p.wizard_table__table_item_text[title="Unassigned"]').count() == 4:
+    if page.locator('p.wizard_table__table_item_text[title="Up "]').count() != 6 or page.locator('p.wizard_table__table_item_text[title="Unassigned"]').count() == 4:
         cvm.configure_ha_networking()
 
     # check if pools exist, if not, create them
@@ -155,12 +155,12 @@ def test_create_2ha_iscsi_ram_lun(page: Page, name="ilun2haram"):
     # expect(page.get_by_text("Network channel configuration is failed.")).not_to_be_visible()
     # expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).not_to_be_visible()
 
-    page.locator("input[name=\"eth2\"]").nth(1).click()
+    page.locator("input[name=\"ens256\"]").nth(2).click()
 
     expect(page.get_by_text("Network channel configuration is failed.")).to_be_visible()
     expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).to_be_visible()
 
-    page.locator("input[name=\"eth2\"]").nth(2).click()
+    page.locator("input[name=\"ens256\"]").nth(2).click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_text("Testing network settings...")).to_be_visible()
@@ -273,8 +273,8 @@ def test_create_2ha_nvme_tcp_lun(page: Page):
         cvm.add_appliance()
 
     page.get_by_role('link', name='Network').click(timeout=100000)
-    if page.locator('p.wizard_table__table_item_text[title="Unassigned"]').count() == 4:    #page.locator('p.wizard_table__table_item_text[title="Up"]').count() != 6 or 
-        cvm.configure_ha_networking_repeat()
+    if page.locator('p.wizard_table__table_item_text[title="Up "]').count() != 6 or page.locator('p.wizard_table__table_item_text[title="Unassigned"]').count() == 4:
+        cvm.configure_ha_networking()
 
     # check if pools exist, if not, create them
     page.get_by_role('link', name='Storage pools').click()
@@ -397,12 +397,12 @@ def test_create_2ha_nvme_tcp_lun(page: Page):
     # expect(page.get_by_text("Network channel configuration is failed.")).not_to_be_visible()
     # expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).not_to_be_visible()
 
-    page.locator("input[name=\"eth2\"]").nth(1).click()
+    page.locator("input[name=\"ens256\"]").nth(2).click()
 
     expect(page.get_by_text("Network channel configuration is failed.")).to_be_visible()
     expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).to_be_visible()
 
-    page.locator("input[name=\"eth2\"]").nth(2).click()
+    page.locator("input[name=\"ens256\"]").nth(2).click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_text("Testing network settings...")).to_be_visible()
@@ -557,11 +557,11 @@ def test_delete_nvme_lun(page: Page, name="nlun2hatcp"):
     
     page.get_by_role('link', name='LUNs').click()
     if not page.locator(f'p[title="{name}"]').first.is_visible():
-        cvm.create_2ha_nvme_tcp()
+        cvm.create_2ha_nvme_tcp_lun()
     try:
         page.locator(f'p[title="{name}"]').first.wait_for(state="visible", timeout=15000)
     except PlaywrightTimeoutError:
-        cvm.create_2ha_nvme_tcp()
+        cvm.create_2ha_nvme_tcp_lun()
     cvm.delete_nvme_lun(name)
 
     expect(page.locator("tr:visible").filter(has_text=name)).to_have_count(0, timeout=100000)
