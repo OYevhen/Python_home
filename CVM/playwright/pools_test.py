@@ -79,8 +79,8 @@ def test_create_single_disk_pools(page: Page):
     
     page.get_by_text("GB").nth(2).click()
 
-    expect(page.get_by_text("Total raw capacity of selected disks:7 GB").nth(0)).to_be_visible()
-    expect(page.get_by_text("Total raw capacity of selected disks:7 GB").nth(1)).to_be_visible()
+    expect(page.get_by_text(f"Total raw capacity of selected disks:{disk_size} GB").nth(0)).to_be_visible()
+    expect(page.get_by_text(f"Total raw capacity of selected disks:{disk_size} GB").nth(1)).to_be_visible()
     expect(page.get_by_text("Selected number of disks is equal")).to_be_visible()
 
     page.get_by_role("button", name="Next").click()
@@ -102,16 +102,16 @@ def test_create_single_disk_pools(page: Page):
     expect(page.locator('p.pool_summary_item__list_item_title').nth(0)).to_contain_text("Storage pool layout")
     expect(page.locator('p.pool_summary_item__list_item_value').nth(0)).to_contain_text("Single disk")
     expect(page.locator('p.pool_summary_item__list_item_title').nth(1)).to_contain_text("Raw capacity")
-    expect(page.locator('p.pool_summary_item__list_item_value').nth(1)).to_contain_text("7 GB")
+    expect(page.locator('p.pool_summary_item__list_item_value').nth(1)).to_contain_text(f"{disk_size} GB")
     expect(page.locator('p.pool_summary_item__list_item_title').nth(2)).to_contain_text("Usable capacity")
-    expect(page.locator('p.pool_summary_item__list_item_value').nth(2)).to_contain_text("7  GB")
+    expect(page.locator('p.pool_summary_item__list_item_value').nth(2)).to_contain_text(f"{disk_size}  GB")
     expect(page.get_by_text(f"{appliance2_name}")).to_be_visible()
     expect(page.locator('p.pool_summary_item__list_item_title').nth(3)).to_contain_text("Storage pool layout")
     expect(page.locator('p.pool_summary_item__list_item_value').nth(3)).to_contain_text("Single disk")
     expect(page.locator('p.pool_summary_item__list_item_title').nth(4)).to_contain_text("Raw capacity")
-    expect(page.locator('p.pool_summary_item__list_item_value').nth(4)).to_contain_text("7 GB")
+    expect(page.locator('p.pool_summary_item__list_item_value').nth(4)).to_contain_text(f"{disk_size} GB")
     expect(page.locator('p.pool_summary_item__list_item_title').nth(5)).to_contain_text("Usable capacity")
-    expect(page.locator('p.pool_summary_item__list_item_value').nth(5)).to_contain_text("7  GB")
+    expect(page.locator('p.pool_summary_item__list_item_value').nth(5)).to_contain_text(f"{disk_size}  GB")
 
     page.locator('button.modalwindow__close_icon').click()  #close by pressing 'x'
 

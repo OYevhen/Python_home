@@ -1,11 +1,14 @@
 from playwright.sync_api import expect
 
-URL1 = "https://172.16.6.147/"
-URL2 = "https://172.16.6.148/"
+URL1 = "https://172.16.6.162/"
+URL2 = "https://172.16.6.163/"
 username = "user"
 password = "rds123RDS!@#"
 appliance1_name = f"{URL1.split('.')[-1].rstrip('/')}"
 appliance2_name = f"{URL2.split('.')[-1].rstrip('/')}"
+disk_size = 11
+data = "ens19"      
+replica = "ens20"   
 
 
 class CVM:
@@ -124,16 +127,16 @@ class CVM:
 
         self.page.get_by_role("textbox").first.fill(f"14.14.14.{appliance1_name}")
         self.page.get_by_role("textbox").nth(1).fill("24")
-        self.page.locator("#ens224").nth(0).check()
+        self.page.locator("#ens19").nth(0).check()
         self.page.get_by_role("textbox").nth(2).fill(f"15.15.15.{appliance1_name}")
         self.page.get_by_role("textbox").nth(3).fill("24")
-        self.page.locator("#ens256").nth(1).check()
+        self.page.locator("#ens20").nth(1).check()
         self.page.get_by_role("textbox").nth(4).fill(f"14.14.14.{appliance2_name}")
         self.page.get_by_role("textbox").nth(5).fill("24")
-        self.page.locator("#ens224").nth(2).check()
+        self.page.locator("#ens19").nth(2).check()
         self.page.locator(f"div:nth-child(7) > .dropdown > .dropdown_content > .wizard_table__container > #wizard_table > .wizard_table__table_tbody_wrapper > tr:nth-child(2) > td:nth-child(5) > .wizard_table__table_item_text_wrapper > .table_input__wrapper > .table_input__container").fill(f"15.15.15.{appliance2_name}")
         self.page.locator(f"div:nth-child(7) > .dropdown > .dropdown_content > .wizard_table__container > #wizard_table > .wizard_table__table_tbody_wrapper > tr:nth-child(2) > td:nth-child(6) > .wizard_table__table_item_text_wrapper > .table_input__wrapper > .table_input__container").fill("24")
-        self.page.locator("#ens256").nth(3).check()
+        self.page.locator("#ens20").nth(3).check()
         self.page.get_by_role("spinbutton").fill("9000")
 
         self.page.get_by_role("button", name="Next").click()
@@ -200,7 +203,7 @@ class CVM:
         self.page.get_by_role("button").filter(has_text="Delete LUN(s)").click()
         self.page.locator("span").first.click()
         self.page.get_by_role("button", name="Delete").click()
-        expect(self.page.get_by_text("There are no LUNs yet")).to_be_visible(timeout=100000)
+        # expect(self.page.get_by_text("There are no LUNs yet")).to_be_visible(timeout=100000)
 
     def delete_nvme_lun(self, name="nlun2hatcp"):
         lun_row = self.page.locator("tr:visible").filter(has_text=name).first

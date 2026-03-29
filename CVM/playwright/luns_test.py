@@ -155,12 +155,12 @@ def test_create_2ha_iscsi_ram_lun(page: Page, name="ilun2haram"):
     # expect(page.get_by_text("Network channel configuration is failed.")).not_to_be_visible()
     # expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).not_to_be_visible()
 
-    page.locator("input[name=\"ens256\"]").nth(2).click()
+    page.locator(f"input[name=\"{replica}\"]").nth(2).click()
 
     expect(page.get_by_text("Network channel configuration is failed.")).to_be_visible()
     expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).to_be_visible()
 
-    page.locator("input[name=\"ens256\"]").nth(2).click()
+    page.locator(f"input[name=\"{replica}\"]").nth(2).click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_text("Testing network settings...")).to_be_visible()
@@ -397,12 +397,12 @@ def test_create_2ha_nvme_tcp_lun(page: Page):
     # expect(page.get_by_text("Network channel configuration is failed.")).not_to_be_visible()
     # expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).not_to_be_visible()
 
-    page.locator("input[name=\"ens256\"]").nth(2).click()
+    page.locator(f"input[name=\"{replica}\"]").nth(2).click()
 
     expect(page.get_by_text("Network channel configuration is failed.")).to_be_visible()
     expect(page.get_by_text("Assign at least two interfaces on each node, one per role (one for “Data” and one for “Replication”).")).to_be_visible()
 
-    page.locator("input[name=\"ens256\"]").nth(2).click()
+    page.locator(f"input[name=\"{replica}\"]").nth(2).click()
     page.get_by_role("button", name="Next").click()
 
     expect(page.get_by_text("Testing network settings...")).to_be_visible()
@@ -515,6 +515,7 @@ def test_delete_iscsi_lun(page: Page, name="ilun2haram"):
     if not page.locator(f'p[title="{name}"]').first.is_visible():
         cvm.create_2ha_iscsi_ram_lun()
     
+    page.get_by_role("row", name=name).first.click()        #it may not work
     page.get_by_role("row", name=name).first.click()
     page.get_by_role("button").filter(has_text="Delete LUN(s)").click()
 
@@ -562,6 +563,14 @@ def test_delete_nvme_lun(page: Page, name="nlun2hatcp"):
         page.locator(f'p[title="{name}"]').first.wait_for(state="visible", timeout=15000)
     except PlaywrightTimeoutError:
         cvm.create_2ha_nvme_tcp_lun()
-    cvm.delete_nvme_lun(name)
+
+    page.get_by_role("row", name=name).first.click()
+    page.get_by_role("button").filter(has_text="Delete LUN(s)").click()
+
+    expect(page.get_by_role("heading", level=3,name="Delete LUN")).to_be_visible()
+    expect(page.locator(f'div.confirm_wizardNew__itemName[title="{name}"]')).to_be_visible()
+    expect(page.get_by_text("This action will permanently destroy selected LUN")).to_be_visible()
+
+    page.get_by_role("button", name="Delete").click()
 
     expect(page.locator("tr:visible").filter(has_text=name)).to_have_count(0, timeout=100000)
