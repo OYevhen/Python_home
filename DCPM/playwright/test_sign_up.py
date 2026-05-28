@@ -158,6 +158,7 @@ def test_t65(browser_context: Page):
 
     assert sign_up_page.general_error_message() == "Name is already taken"
 
+
 @pytest.mark.skip(reason="Not implemented yet")
 def test_t32(browser_context: Page):
     """Password accepts Latin alphabet characters only"""
@@ -309,3 +310,99 @@ def test_t3(browser_context: Page):
     sign_up_page.enter_username(" testuser")
     sign_up_page.enter_email("test@domain.com")
     assert page.get_by_role("paragraph", name="Name").is_not_visible()
+
+
+def test_t43(browser_context: Page):
+    """User is registered successfully when all fields are valid"""
+    page = browser_context
+    sign_up_page = SignUpPage(page)
+    sign_up_page.navigate_to_sign_up(URL)
+    sign_up_page.enter_username("user43")
+    sign_up_page.enter_email("test43@domain.com")
+    sign_up_page.enter_password("RDS!@#RDS123")
+    sign_up_page.enter_confirm_password("RDS!@#RDS123")
+    sign_up_page.click_sign_up()
+    
+    assert "DataCore Platform" in page.title()
+
+
+def test_t15(browser_context: Page):
+    """Username does not exceed maximum length limit"""
+    page = browser_context
+    sign_up_page = SignUpPage(page)
+    sign_up_page.navigate_to_sign_up(URL)
+    sign_up_page.enter_username("a" * 51)
+
+    assert sign_up_page.username_error_message() == "Username must be at most 50 characters"
+
+
+def test_t14(browser_context: Page):
+    """Username meets minimum length requirement"""
+    page = browser_context
+    sign_up_page = SignUpPage(page)
+    sign_up_page.navigate_to_sign_up(URL)
+    sign_up_page.enter_username("a" * 2)
+
+    assert sign_up_page.username_error_message() == "Username must be at least 3 characters"
+
+
+@pytest.mark.skip(reason="Not implemented yet")
+def test_t62(browser_context: Page):
+    """Username must end with a letter or number"""
+    page = browser_context
+    sign_up_page = SignUpPage(page)
+    sign_up_page.navigate_to_sign_up(URL)
+    sign_up_page.enter_username("user_")
+
+    assert sign_up_page.username_error_message() == "Username must end with a letter or number"
+
+
+@pytest.mark.skip(reason="Not implemented yet")
+def test_t19(browser_context: Page):
+    """Username must start with a letter"""
+    page = browser_context
+    sign_up_page = SignUpPage(page)
+    sign_up_page.navigate_to_sign_up(URL)
+    sign_up_page.enter_username("User")
+
+    assert sign_up_page.username_error_message() == "Must begin with a letter (a-z)"
+
+    sign_up_page.enter_username("1user")
+
+    assert sign_up_page.username_error_message() == "Must begin with a letter (a-z)"
+
+
+@pytest.mark.skip(reason="Not implemented yet")
+def test_t20(browser_context: Page):
+    """Username rejects consecutive special characters"""
+    page = browser_context
+    sign_up_page = SignUpPage(page)
+    sign_up_page.navigate_to_sign_up(URL)
+    sign_up_page.enter_username("user__name")
+
+    assert sign_up_page.username_error_message() == "Cannot contain two or more special characters in a row"
+
+
+@pytest.mark.skip(reason="Not implemented yet")
+@pytest.mark.parametrize("name", ["admin", "root", "system", "support", "api", "localhost", "bin", "guest", "superadmin", "help", "contact", "info"])
+def test_t64(browser_context: Page, name: str):
+    """Username rejects reserved names"""
+    page = browser_context
+    sign_up_page = SignUpPage(page)
+    sign_up_page.navigate_to_sign_up(URL)
+    sign_up_page.enter_username(name)
+
+    assert sign_up_page.username_error_message() == "Reserved name"
+
+
+@pytest.mark.parametrize("symbol", ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "|", "\\", "/", "<", ">", "~"])
+def test_t16(browser_context: Page, symbol: str):
+    """Username rejects special characters"""
+    page = browser_context
+    sign_up_page = SignUpPage(page)
+    sign_up_page.navigate_to_sign_up(URL)
+    sign_up_page.enter_username(f"user{symbol}name")
+
+    assert sign_up_page.username_error_message() == "Username may contain only letters, numbers, hyphens, underscores, and periods"
+
+
