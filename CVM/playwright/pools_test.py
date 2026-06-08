@@ -11,9 +11,9 @@ def test_create_single_disk_pools(page: Page):
     page.get_by_role('link', name='Appliances').click()
     if not page.locator('p[title="145"]').is_visible():
         cvm.add_appliance()
-    page.get_by_role('link', name='Storage pools').click()
 
-    if page.locator('p[title="144"]').is_visible() and page.locator('p[title="145"]').is_visible():
+    page.get_by_role('link', name='Storage pools').click()
+    if page.locator('p[title="144"]').is_visible() or page.locator('p[title="145"]').is_visible():
         cvm.delete_single_disk_pools()
 
     expect(page.get_by_text("There are no storage pools yet")).to_be_visible()

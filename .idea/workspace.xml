@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dfce7e7-d67f-4713-8285-c3dcff9a1411" name="Changes" comment="11.14">
-      <change beforePath="$PROJECT_DIR$/.idea/Python_home.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/ITVDN_2/calculator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ITVDN_2/lesson_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ITVDN_2/lesson_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ITVDN_2/lesson_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CVM/playwright/pools_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/CVM/playwright/pools_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Dockerfile" />
         <option value="Python Script" />
       </list>
     </option>
@@ -34,7 +37,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/OYevhen/Python_home.git&quot;,
+    &quot;url&quot;: &quot;git@github.com:OYevhen/Python_home.git&quot;,
     &quot;accountId&quot;: &quot;73181757-b25a-4c07-ba5b-b29d8a6621a1&quot;
   }
 }</component>
@@ -71,18 +74,28 @@
     &quot;Python tests.pytest for Seniortester.test_login.test_login.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest for Seniortester.test_login.test_news.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest for Seniortester.test_parametrize.test_login.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for Solveme.tests.test_something.test_getting_users_list.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest for senior_tester.test_example.test_three_is_three.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest in ICW.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest in action_chains.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in something_test.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest in test_api.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest in test_demoblaze.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest in test_example.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest in test_login.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.pytest in test_qa_practice.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in test_something.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in test_users.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.calculator.executor&quot;: &quot;Run&quot;,
     &quot;Python.dotenv.executor&quot;: &quot;Run&quot;,
     &quot;Python.find_elements.executor&quot;: &quot;Run&quot;,
     &quot;Python.flacky.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hello.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lesson_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lesson_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lesson_3.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.player.executor&quot;: &quot;Run&quot;,
     &quot;Python.selenium_bot.executor&quot;: &quot;Run&quot;,
     &quot;Python.test_requests.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -100,42 +113,24 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;yaml&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ITVDN_2" />
+      <recent name="$PROJECT_DIR$/ITVDN_2/" />
+      <recent name="$PROJECT_DIR$/ITVDN_2/lesson_1" />
+      <recent name="$PROJECT_DIR$/Solveme/tests/users" />
       <recent name="$PROJECT_DIR$/CVM/requests" />
-      <recent name="C:\Users\msi\PycharmProjects\Python_home\Seniortester\test" />
-      <recent name="C:\Users\msi\PycharmProjects\Python_home\SeniorTester" />
-      <recent name="C:\Users\msi\PycharmProjects\Python_home\SeniorTester\test" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="ICW" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CVM" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CVM/requests/ICW.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.lesson_3">
+    <configuration name="calculator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python_home" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,13 +139,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ITVDN_2/lesson_1" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ITVDN_2/calculator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,7 +153,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="selenium_bot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="lesson_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python_home" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -168,13 +162,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Seniortester" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ITVDN_2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Seniortester/selenium_bot.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ITVDN_2/lesson_1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,58 +176,89 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for Seniortester.playwright_test.test_alert" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="lesson_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python_home" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ITVDN_2/lesson_2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;Seniortester.playwright_test.test_alert&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ITVDN_2/lesson_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in ICW.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="lesson_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python_home" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ITVDN_2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ITVDN_2/lesson_3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="player" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python_home" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Solveme/src/generators" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/CVM/requests/ICW.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Solveme/src/generators/player.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python tests.pytest in ICW.py" />
-        <item itemvalue="Python.selenium_bot" />
-        <item itemvalue="Python.ICW" />
-        <item itemvalue="Python tests.pytest for Seniortester.playwright_test.test_alert" />
+        <item itemvalue="Python.lesson_3" />
+        <item itemvalue="Python.lesson_2" />
+        <item itemvalue="Python.calculator" />
+        <item itemvalue="Python.lesson_1" />
+        <item itemvalue="Python.player" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.142" />
         <option value="bundled-python-sdk-f2b7a9f6281b-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.142" />
       </set>
     </attachedChunks>
@@ -283,6 +307,14 @@
       <workItem from="1766324756262" duration="920000" />
       <workItem from="1766381737542" duration="2605000" />
       <workItem from="1767647137610" duration="1017000" />
+      <workItem from="1768140245102" duration="3824000" />
+      <workItem from="1768329361389" duration="1991000" />
+      <workItem from="1768415565384" duration="2844000" />
+      <workItem from="1768501759835" duration="2080000" />
+      <workItem from="1768504128034" duration="51000" />
+      <workItem from="1769105809788" duration="1517000" />
+      <workItem from="1769417637870" duration="5109000" />
+      <workItem from="1772969657684" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="11.14">
       <option name="closed" value="true" />
@@ -316,8 +348,9 @@
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_playwright_test_test_wiki2.coverage" NAME="pytest for Seniortester.playwright_test.test_wiki2 Coverage Results" MODIFIED="1764617013892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_login.coverage" NAME="pytest for Seniortester.test_login.test_login Coverage Results" MODIFIED="1763493149175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_playwright_test_test_request.coverage" NAME="pytest for Seniortester.playwright_test.test_request Coverage Results" MODIFIED="1764702512518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_dostavka_bonusiv.coverage" NAME="pytest for Seniortester.test_login.test_dostavka_bonusiv Coverage Results" MODIFIED="1763497314699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_demoblaze_py.coverage" NAME="pytest in test_demoblaze.py Coverage Results" MODIFIED="1763287947690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_dostavka_bonusiv.coverage" NAME="pytest for Seniortester.test_login.test_dostavka_bonusiv Coverage Results" MODIFIED="1763497314699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_something_py.coverage" NAME="pytest in test_something.py Coverage Results" MODIFIED="1767980885973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_playwright_test_test_wiki.coverage" NAME="pytest for Seniortester.playwright_test.test_wiki Coverage Results" MODIFIED="1764615732324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_login_test_news.coverage" NAME="pytest for Seniortester.test_login.test_news Coverage Results" MODIFIED="1763496230514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$dotenv.coverage" NAME="dotenv Coverage Results" MODIFIED="1764576469262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Seniortester" />
@@ -331,17 +364,21 @@
     <SUITE FILE_PATH="coverage/Python_home$main.coverage" NAME="main Coverage Results" MODIFIED="1765709052589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_qa_practice_py.coverage" NAME="pytest in test_qa_practice.py Coverage Results" MODIFIED="1763538737666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$selenium_bot.coverage" NAME="selenium_bot Coverage Results" MODIFIED="1765911100501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Seniortester" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_users_py.coverage" NAME="pytest in test_users.py Coverage Results" MODIFIED="1768140828840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_playwright_test_test_alert.coverage" NAME="pytest for Seniortester.playwright_test.test_alert Coverage Results" MODIFIED="1764751166993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_test_demoblaze_test_two_monitors.coverage" NAME="pytest for SeniorTester.test.test_demoblaze.test_two_monitors Coverage Results" MODIFIED="1763290849299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_like_a_button_page_test_button2_clicked.coverage" NAME="pytest for Seniortester.test.test_like_a_button_page.test_button2_clicked Coverage Results" MODIFIED="1763541496825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_in_test_login_py.coverage" NAME="pytest in test_login.py Coverage Results" MODIFIED="1763498244660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_test_demoblaze_test_open_s6.coverage" NAME="pytest for SeniorTester.test.test_demoblaze.test_open_s6 Coverage Results" MODIFIED="1763290572300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_in_something_test_py.coverage" NAME="pytest in something_test.py Coverage Results" MODIFIED="1767966957016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_senior_tester_test_example_test_three_is_three.coverage" NAME="pytest for senior_tester.test_example.test_three_is_three Coverage Results" MODIFIED="1763410823101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_dotenv_test_request.coverage" NAME="pytest for Seniortester.dotenv.test_request Coverage Results" MODIFIED="1764615164136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_in_ICW_py.coverage" NAME="pytest in ICW.py Coverage Results" MODIFIED="1766383955679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_test_test_button_page_test_button1_clicked.coverage" NAME="pytest for Seniortester.test.test_button_page.test_button1_clicked Coverage Results" MODIFIED="1763577947788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$flacky.coverage" NAME="flacky Coverage Results" MODIFIED="1763837107743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Seniortester" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_Seniortester_action_chains_test_cost.coverage" NAME="pytest for Seniortester.action_chains.test_cost Coverage Results" MODIFIED="1764102154700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$pytest_for_Solveme_tests_test_something_test_getting_users_list.coverage" NAME="pytest for Solveme.tests.test_something.test_getting_users_list Coverage Results" MODIFIED="1767967625978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python_home$player.coverage" NAME="player Coverage Results" MODIFIED="1768418221563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Solveme/src/generators" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_for_SeniorTester_test_demoblaze_test_open_s6.coverage" NAME="pytest for SeniorTester.test_demoblaze.test_open_s6 Coverage Results" MODIFIED="1763235650078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python_home$pytest_in_action_chains_py.coverage" NAME="pytest in action_chains.py Coverage Results" MODIFIED="1764059965176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
