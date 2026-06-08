@@ -7,6 +7,9 @@ class SignInPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
+    def navigate_to(self, url=URL):
+        self.page.goto(url)
+
     def enter_username(self, username=username):
         self.page.locator('input[name="identifier"]').clear()
         self.page.locator('input[name="identifier"]').fill(username)
